@@ -1,0 +1,63 @@
+baseURL = "https://ichris.info/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "Code is Poetry"
+theme = "beautifulhugo"
+enableEmoji = true
+enableGitInfo = true
+hasCJKLanguage = true
+paginate = 10
+paginatePath = "page"
+googleAnalytics = "UA-137163651-1"
+uglyurls = true
+
+pygmentsOptions = "linenos=table"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
+
+[Params]
+	useHLJS = false
+#	since = 2009
+	logoTitle = "logo title"
+	subtitle = "但凡不能杀死你的，最终都会使你强大"
+	keywords = ["Chris", "blog"]
+	description = "chris's blog"
+	logo = "/img/avatar.jpg"
+	favicon = "/img/favicon.png"
+	DateFormat = "2006-01-02 15:04:05"
+
+[Author]
+	name = "Chris"
+	github = "ichrislu"
+	email = "chrislu.name@gmail.com"
+
+[blackfriday]
+	hrefTargetBlank = true
+
+[[menu.main]]
+	name = "HOME"
+	url = ""
+	weight = 1
+
+[[menu.main]]
+	name = "Tags"
+	url = "/tags.html"
+	weight = 3
+
+[[menu.main]]
+	name = "About"
+	url = "/about.html"
+	weight = 5
+
+[permalinks]
+	post = "/:year/:filename"
+
+[taxonomies]
+	tag = "tags"
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
+
