@@ -22,7 +22,7 @@ pygmentsCodefencesGuessSyntax = true
 	subtitle = "Code is Poetry"
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
-	dateFormat = "2006-01-02 15:04:05"
+	dateFormat = "2006-01-02 15:04"
 
 [Author]
 	name = "Chris"
