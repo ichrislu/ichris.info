@@ -1,7 +1,7 @@
 baseURL = "https://ichris.info/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
-title = "Code is Poetry"
+title = "Chris's web"
 theme = "beautifulhugo"
 enableEmoji = true
 enableGitInfo = true
@@ -18,14 +18,11 @@ pygmentsCodefencesGuessSyntax = true
 
 [Params]
 	useHLJS = false
-#	since = 2009
-	logoTitle = "logo title"
-	subtitle = "但凡不能杀死你的，最终都会使你强大"
-	keywords = ["Chris", "blog"]
-	description = "chris's blog"
+	since = 2011
+	subtitle = "Code is Poetry"
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
-	DateFormat = "2006-01-02 15:04:05"
+	dateFormat = "2006-01-02 15:04:05"
 
 [Author]
 	name = "Chris"
@@ -51,7 +48,7 @@ pygmentsCodefencesGuessSyntax = true
 	weight = 5
 
 [permalinks]
-	post = "/:year/:filename"
+	post = "/:year/:filename/"
 
 [taxonomies]
 	tag = "tags"
