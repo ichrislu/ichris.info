@@ -1,0 +1,23 @@
+---
+title: "go path"
+date: "2018-12-30 00:08:00"
+lastMod: "2019-07-09 23:53:00"
+tags: ["go"]
+---
+
+自定义GOPATH，以zsh为例
+
+```shell
+# vim ~/.zshrc，添加下行
+export GOPATH=/Users/chris/Documents/go
+
+# 立即生效，source ~/.zshrc
+```
+
+允许多个目录，当有多个目录时，请注意分隔符，Linux冒号，Windows分号; 当有多个`GOPATH时`默认将`go get`获取的包存放在第一个目录下 
+
+在GOPATH目录，会有3个文件夹：
+
+- bin：编译后生成的可执行文件
+- pkg：编译时生成的中间文件
+- src：存放源码，按照golang默认约定，go run，go install等命令的当前工作路径
