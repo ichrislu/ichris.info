@@ -16,7 +16,8 @@ tags: ["go"]
 # vim ~/.zshrc，添加下行
 export GOPATH=/Users/chris/Documents/go
 
-# 立即生效，source ~/.zshrc
+# 立即生效
+source ~/.zshrc
 ```
 
 允许多个目录，当有多个目录时，请注意分隔符，Linux冒号，Windows分号; 当有多个`GOPATH时`默认将`go get`获取的包存放在第一个目录下 
