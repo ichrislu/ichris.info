@@ -1,8 +1,8 @@
 ---
-"title": "从Spring Cloud到Kubernetes，架构升级思考"
-"date": "2019-07-15 20:04"
-"lastMod": "2019-07-15 20:04"
-"tag": ["Spring Cloud", "kubernetes"]
+title: "从Spring Cloud到Kubernetes，架构升级思考"
+date: "2019-07-15 20:04"
+lastMod: "2019-07-15 20:04"
+tags: ["Spring Cloud", "kubernetes"]
 ---
 
 ## 架构从SpringCloud升级到Kubernetes
