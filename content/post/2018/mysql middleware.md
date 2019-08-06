@@ -1,7 +1,7 @@
 ---
 title: "MySQL中间件选择"
 date: "2018-11-05 14:52:00"
-lastMod: "2018-11-05 14:52:00"
+lastMod: "2019-08-06 18:22:00"
 tags: ["mysql", "中间件", "读写分离"]
 ---
 
@@ -11,13 +11,46 @@ tags: ["mysql", "中间件", "读写分离"]
 2. flyway也不支持！
 
 ### TiDB(2.0版)
-对运行环境要求高得变态，某公司的服务器上了高性能SSD仍然不能满足IOPS要求（<40000）
+对运行环境硬件配置要求高得变态，某公司的服务器上了高性能SSD仍然不能满足IOPS要求（<40000）
 
-### Sharding-Share 3.0.0（本次使用的是JDBC；Proxy也应该是这样，但未测试）
+### Sharding-JDBC 3.0.0（Proxy也应该是这样，但未测试）
 SQL限制很多，不支持冗余括号、CASE WHEN、DISTINCT、HAVING、UNION (ALL)，有限支持子查询。http://shardingsphere.io/document/current/cn/features/sharding/usage-standard/sql/
 
+### Sharding-Proxy 3.1.0/4.0.0-RC1（2019-08-06测试）
+
+SQL限制未详细研究，但是发现致命问题，数据表中有is_active/is_start这样的字段，其值为0或1，很明显这是保存的状态，语义类型为布尔类型，但是查出来结果却让人惊讶。
+
+环境说明：
+
+- 151/152分别为start.sh和docker run运行的Sharding-Proxy 3.1.0/4.0.0-RC1
+- 153/154/155为MySQL主从，未发现有延迟
+- 153 -> master
+- 154/155 -> slave
+
+查询语句
+
+```sql
+SELECT is_active,is_start FROM <table> WHERE id_ = '<id>';
+```
+
+**数据库值（153、154、155）**
+mysql客户端和navcat等客户端都返回
+1、0
+
+**sharding-proxy（151、152）**
+mysql客户端返回
+true、false
+
+navcate返回
+1、1
+
+抛开不同工具的差异，这确实给程序造成了麻烦，通过压力测试反馈出来了……
+
+网上找了一圈，没人反馈这个问题，github上issue也没人提，难道大家用这个就没发现这个问题吗？时间有限，现在我没时间去查源码，只能先换用其他中间件。
+
 ### ProxySQL
-待测试评估的
+
+正在测试中……
 
 ### MaxScale
 Maridb是MySQL的开源分支，也是MySQL作者弄的，特殊的官方吧
