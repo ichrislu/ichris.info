@@ -77,3 +77,11 @@ kubeadm+原生部署
 
 - 拆解公共包为：功能、配置、常量、公共接口调用、实体类
 - 所有跨模块接口调用在公共包中实现，由各模块调用；由统一环境变量决定模块间接口调用是走Feign，还是本地调用（待考虑实现细节）
+
+
+
+---
+
+> > [服务迁移之路 | Spring Cloud向Service Mesh转变](https://juejin.im/post/5ce26e266fb9a07eb67d619f)
+> >
+> > [Kubernetes和Spring Cloud哪个部署微服务更好？](https://www.kubernetes.org.cn/1057.html)

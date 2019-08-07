@@ -50,7 +50,92 @@ navcate返回
 
 ### ProxySQL
 
-正在测试中……
+官方说比MaxScale好
+
+经测试结果如下：
+
+**功能**
+
+经测试sharding-proxy的问题不存在
+
+**性能**
+
+测试中。。。
+
+**问题**
+
+服务器1，安装很顺利
+
+服务器2，安装后一直报错：
+
+```bash
+[root@copl-srv013-152 ~]# systemctl status proxysql
+● proxysql.service - LSB: High Performance Advanced Proxy for MySQL
+   Loaded: loaded (/etc/rc.d/init.d/proxysql; bad; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2019-08-07 16:26:45 CST; 16s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 6022 ExecStop=/etc/rc.d/init.d/proxysql stop (code=exited, status=0/SUCCESS)
+  Process: 2744 ExecStart=/etc/rc.d/init.d/proxysql start (code=exited, status=0/SUCCESS)
+
+Aug 07 16:09:37 copl-srv013-152 systemd[1]: Starting LSB: High Performance Advanced Proxy for MySQL...
+Aug 07 16:09:37 copl-srv013-152 su[2747]: (to proxysql) root on none
+Aug 07 16:09:37 copl-srv013-152 proxysql[2744]: Starting ProxySQL: 2019-08-07 16:09:37 main.cpp:720:ProxySQL_Main_process_global_variables(): [WARNING] Unable to open config file /etc/proxysql.cnf
+Aug 07 16:09:37 copl-srv013-152 proxysql[2744]: 2019-08-07 16:09:37 main.cpp:722:ProxySQL_Main_process_global_variables(): [ERROR] Unable to open config file /etc/proxysql.cnf specified in the command line. Aborting!
+Aug 07 16:09:37 copl-srv013-152 proxysql[2744]: DONE!
+Aug 07 16:09:37 copl-srv013-152 systemd[1]: Started LSB: High Performance Advanced Proxy for MySQL.
+```
+
+因为经过了服务器1的安装，所以服务器2安装过程较快，直接复制了服务器1的配置文件/etc/proxysql.cnf过来，启动，则报上面的错误，文件内容是没问题的。服务器1与此不同的是之前不是通过/etc/proxysql.cnf配置加载的，是通用方式，启动后，生成了proxysql.db文件，通过sql语句添加的配置，后来发现配置文件更具有可移植性，所以才换成配置文件方式，非常顺利！
+
+最后解决方案很奇葩！！！通过以上日志可看出，proxysql还是使用centos7之前的service的管理方式，只是针对centos7的systemctl做了兼容处理，于是打开/etc/rc.d/init.d/proxysql文件，看一看内容，找到了这些内容：
+
+```bash
+Usage: ProxySQL {start|stop|status|reload|restart|initial}
+```
+
+于是尝试一下
+
+```base
+[root@copl-srv013-152 ~]# /etc/rc.d/init.d/proxysql initial
+Starting ProxySQL: 2019-08-07 17:12:28 [INFO] Using config file /etc/proxysql.cnf
+Renaming database file /var/lib/proxysql/proxysql.db
+2019-08-07 17:12:28 [INFO] No SSL keys/certificates found in datadir (/var/lib/proxysql). Generating new keys/certificates.
+DONE!
+[root@copl-srv013-152 ~]# /etc/rc.d/init.d/proxysql restart
+Shutting down ProxySQL: DONE!
+Starting ProxySQL: 2019-08-07 17:12:39 [INFO] Using config file /etc/proxysql.cnf
+2019-08-07 17:12:39 [INFO] SSL keys/certificates found in datadir (/var/lib/proxysql): loading them.
+DONE!
+[root@copl-srv013-152 ~]# systemctl status proxysql
+● proxysql.service - LSB: High Performance Advanced Proxy for MySQL
+   Loaded: loaded (/etc/rc.d/init.d/proxysql; bad; vendor preset: disabled)
+   Active: active (exited) since Wed 2019-08-07 16:27:05 CST; 45min ago
+     Docs: man:systemd-sysv-generator(8)
+
+Aug 07 16:27:04 copl-srv013-152 systemd[1]: Starting LSB: High Performance Advanced Proxy for MySQL...
+Aug 07 16:27:04 copl-srv013-152 su[6065]: (to proxysql) root on none
+Aug 07 16:27:05 copl-srv013-152 proxysql[6062]: Starting ProxySQL: 2019-08-07 16:27:05 main.cpp:720:ProxySQL_Main_process_global_variables(): [WARNING] Unable to open config file /etc/proxysql.cnf
+Aug 07 16:27:05 copl-srv013-152 proxysql[6062]: 2019-08-07 16:27:05 main.cpp:722:ProxySQL_Main_process_global_variables(): [ERROR] Unable to open config file /etc/proxysql.cnf specified in the command line. Aborting!
+Aug 07 16:27:05 copl-srv013-152 proxysql[6062]: DONE!
+Aug 07 16:27:05 copl-srv013-152 systemd[1]: Started LSB: High Performance Advanced Proxy for MySQL.
+[root@copl-srv013-152 ~]# systemctl restart proxysql
+[root@copl-srv013-152 ~]# systemctl status proxysql
+● proxysql.service - LSB: High Performance Advanced Proxy for MySQL
+   Loaded: loaded (/etc/rc.d/init.d/proxysql; bad; vendor preset: disabled)
+   Active: active (exited) since Wed 2019-08-07 17:13:00 CST; 1s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 18958 ExecStop=/etc/rc.d/init.d/proxysql stop (code=exited, status=0/SUCCESS)
+  Process: 19151 ExecStart=/etc/rc.d/init.d/proxysql start (code=exited, status=0/SUCCESS)
+
+Aug 07 17:12:59 copl-srv013-152 systemd[1]: Starting LSB: High Performance Advanced Proxy for MySQL...
+Aug 07 17:12:59 copl-srv013-152 su[19153]: (to proxysql) root on none
+Aug 07 17:12:59 copl-srv013-152 proxysql[19151]: Starting ProxySQL: 2019-08-07 17:12:59 [INFO] Using config file /etc/proxysql.cnf
+Aug 07 17:12:59 copl-srv013-152 proxysql[19151]: 2019-08-07 17:12:59 [INFO] SSL keys/certificates found in datadir (/var/lib/proxysql): loading them.
+Aug 07 17:12:59 copl-srv013-152 proxysql[19151]: DONE!
+Aug 07 17:13:00 copl-srv013-152 systemd[1]: Started LSB: High Performance Advanced Proxy for MySQL.
+```
+
+搞定！这是一个很奇葩的bug！！！
 
 ### MaxScale
 Maridb是MySQL的开源分支，也是MySQL作者弄的，特殊的官方吧
