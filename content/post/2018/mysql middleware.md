@@ -1,7 +1,7 @@
 ---
 title: "MySQL中间件选择"
 date: "2018-11-05 14:52:00"
-lastMod: "2019-08-06 18:22:00"
+lastMod: "2019-08-09 18:22:00"
 tags: ["mysql", "中间件", "读写分离"]
 ---
 
@@ -137,6 +137,223 @@ Aug 07 17:13:00 copl-srv013-152 systemd[1]: Started LSB: High Performance Advanc
 
 搞定！这是一个很奇葩的bug！！！
 
+事后在另外一篇文章中找到相同的解决办法：https://blog.51cto.com/bigboss/2103290
+
+**原理：**
+
+仅在第一次(/var/lib/proxysql/proxysql.db文件不存在)启动时有效
+
+启动后可以在proxysql管理端中通过修改数据库的方式修改配置并生效(官方推荐方式)
+
+如果想重新初始化，删除proxysql.db，改好proxysql.cnf，再启动程序也可以
+
+**/etc/proxysql.cnf配置文件示例：**
+
+```cnf
+#file proxysql.cfg
+
+########################################################################################
+# This config file is parsed using libconfig , and its grammar is described in:
+# http://www.hyperrealm.com/libconfig/libconfig_manual.html#Configuration-File-Grammar
+# Grammar is also copied at the end of this file
+########################################################################################
+
+########################################################################################
+# IMPORTANT INFORMATION REGARDING THIS CONFIGURATION FILE:
+########################################################################################
+# On startup, ProxySQL reads its config file (if present) to determine its datadir.
+# What happens next depends on if the database file (disk) is present in the defined
+# datadir (i.e. "/var/lib/proxysql/proxysql.db").
+#
+# If the database file is found, ProxySQL initializes its in-memory configuration from
+# the persisted on-disk database. So, disk configuration gets loaded into memory and
+# then propagated towards the runtime configuration.
+#
+# If the database file is not found and a config file exists, the config file is parsed
+# and its content is loaded into the in-memory database, to then be both saved on-disk
+# database and loaded at runtime.
+#
+# IMPORTANT: If a database file is found, the config file is NOT parsed. In this case
+#            ProxySQL initializes its in-memory configuration from the persisted on-disk
+#            database ONLY. In other words, the configuration found in the proxysql.cnf
+#            file is only used to initial the on-disk database read on the first startup.
+#
+# In order to FORCE a re-initialise of the on-disk database from the configuration file
+# the ProxySQL service should be started with "service proxysql initial".
+#
+########################################################################################
+
+datadir="/var/lib/proxysql"
+errorlog="/var/lib/proxysql/proxysql.log"
+
+admin_variables=
+{
+        admin_credentials="admin:admin"
+#       mysql_ifaces="127.0.0.1:6032;/tmp/proxysql_admin.sock"
+        mysql_ifaces="0.0.0.0:6032"
+#       refresh_interval=2000
+#       debug=true
+}
+
+mysql_variables=
+{
+        threads=32
+        max_connections=2048
+        default_query_delay=0
+        default_query_timeout=36000000
+        have_compress=true
+        poll_timeout=2000
+#       interfaces="0.0.0.0:6033;/tmp/proxysql.sock"
+        interfaces="0.0.0.0:6033"
+        default_schema="information_schema"
+        stacksize=1048576
+        server_version="5.7.23"
+        connect_timeout_server=3000
+# make sure to configure monitor username and password
+# https://github.com/sysown/proxysql/wiki/Global-variables#mysql-monitor_username-mysql-monitor_password
+        monitor_username="monitor"
+        monitor_password="monitor"
+        monitor_history=600000
+        monitor_connect_interval=60000
+        monitor_ping_interval=10000
+        monitor_read_only_interval=1500
+        monitor_read_only_timeout=500
+        ping_interval_server_msec=120000
+        ping_timeout_server=500
+        commands_stats=true
+        sessions_sort=true
+        connect_retries_on_failure=10
+}
+
+
+# defines all the MySQL servers
+mysql_servers =
+(
+        {
+                address = "server1.ip",
+                port = 3306,
+                hostgroup = 0,
+                max_connections = 2000
+        },
+        {
+                address = "server2.ip",
+                port = 3306,
+                hostgroup = 1,
+                max_connections = 2000
+        },
+        {
+                address = "server3.ip",
+                port = 3306,
+                hostgroup = 1,
+                max_connections = 2000
+        }
+)
+
+
+# defines all the MySQL users
+mysql_users:
+(
+        {
+                username = "<username>",
+                password = "<password>",
+                default_hostgroup = 0,
+                max_connections = 2000,
+                default_schema = "<database>",
+                active = 1
+        },
+        {
+                username = "<username>",
+                password = "<password>",
+                default_hostgroup = 1,
+                max_connections = 2000,
+                default_schema = "<database>",
+                active = 1
+        },
+)
+
+
+
+#defines MySQL Query Rules
+mysql_query_rules:
+(
+        {
+                rule_id = 1,
+                active = 1,
+                match_pattern = "^SELECT .* FOR UPDATE$",
+                destination_hostgroup = 0,
+                apply=1
+        },
+        {
+                rule_id = 2,
+                active = 1,
+                match_pattern = "^SELECT",
+                destination_hostgroup = 1,
+                apply = 1
+        }
+)
+
+scheduler=
+(
+#  {
+#    id=1
+#    active=0
+#    interval_ms=10000
+#    filename="/var/lib/proxysql/proxysql_galera_checker.sh"
+#    arg1="0"
+#    arg2="0"
+#    arg3="0"
+#    arg4="1"
+#    arg5="/var/lib/proxysql/proxysql_galera_checker.log"
+#  }
+)
+
+
+mysql_replication_hostgroups=
+(
+        {
+                writer_hostgroup = 10,
+                reader_hostgroup = 20,
+                comment = "proxy"
+        }
+)
+
+
+
+
+# http://www.hyperrealm.com/libconfig/libconfig_manual.html#Configuration-File-Grammar
+#
+# Below is the BNF grammar for configuration files. Comments and include directives are not part of the grammar, so they are not included here.
+#
+# configuration = setting-list | empty
+#
+# setting-list = setting | setting-list setting
+#
+# setting = name (":" | "=") value (";" | "," | empty)
+#
+# value = scalar-value | array | list | group
+#
+# value-list = value | value-list "," value
+#
+# scalar-value = boolean | integer | integer64 | hex | hex64 | float
+#                | string
+#
+# scalar-value-list = scalar-value | scalar-value-list "," scalar-value
+#
+# array = "[" (scalar-value-list | empty) "]"
+#
+# list = "(" (value-list | empty) ")"
+#
+# group = "{" (setting-list | empty) "}"
+#
+# empty =
+```
+
+
+
+**差异**
+
+当前了解到ProxySQL和MyCat最大差异在于不需要在代理层添加访问子账号，而是直接使用主从物理数据库的子账号，所以应该是在物理数据库中创建好相同的账号（密码也应该相同），程序配置ProxySQL的端口和地址，使用物理数据库中创建的账号
+
 ### MaxScale
 Maridb是MySQL的开源分支，也是MySQL作者弄的，特殊的官方吧
 待测试评估的
@@ -160,3 +377,4 @@ Google开发的
 ### MySQL-Proxy
 
 ### MySQL-Router
+
