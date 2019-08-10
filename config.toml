@@ -19,7 +19,7 @@ pygmentsCodefencesGuessSyntax = true
 [Params]
 	useHLJS = false
 	since = 2011
-	subtitle = "Code is Poetry"
+	subtitle = "Elegant Concise Efficient"
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
 	dateFormat = "2006-01-02 15:04"
