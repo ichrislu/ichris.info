@@ -1,7 +1,7 @@
 ---
 title: "macOS安装配置和软件"
 date: "2018-12-26 21:44:55"
-lastMod: "2019-03-31 21:54:25"
+lastMod: "2020-01-06 23:54:25"
 tags: ["macOS", "linux"]
 ---
 
@@ -62,25 +62,25 @@ tags: ["macOS", "linux"]
 
 #### 常规软件
 - 清歌五笔
+- Alfred
 - Typora
-- ~~XMind Zen~~，已换为幕布
+- ~~XMind Zen，幕布~~，已换为WPS
 - AppCleaner
 - Microsoft Remote Desktop（仅海外App Store有，不能下载，当前是下载的测试版）
 - IINA
-- CotEditor
+- ~~CotEditor~~，已换为MacVim
 - ~~FreeDownloadManager~~，已换为Motrix
-- The Unarchiver
+- The Unarchiver，eZip
 - 有道云笔记
 
 #### 常规开发工具
 - Postman
-- VS Code
+- Goland/IDEA/PyCharm/VS Code
 - Sequel Pro
 - Sourcetree
 - Git
-- Termius
-- Go
-- Python
+- AnotherRedisDesktopManager
+- ~~Termius~~，已换为iTerm2 + profile
 
 #### ShadowsocksX-NG
 以前一直用的是ShadowsocksX，这次重装改用了ShadowsocksX-NG，据[官网](https://github.com/shadowsocks/ShadowsocksX-NG)介绍，后者是用来替代前者的，同样遇到了小坑。
@@ -101,6 +101,16 @@ tags: ["macOS", "linux"]
 #### homebrew
 - 官网：https://brew.sh
 - 安装telnet wget zssh
+
+#### Alfred
+
+##### 常规设置
+
+- TODO
+
+##### workflow
+
+- TODO
 
 #### zsh
 
@@ -127,7 +137,12 @@ cmd + ,进入设置，找到Profile，选择Profile，比如default，找到keys
 
 > 官网：www.iterm2.com
 
-#### ~~go2shell~~
+#### finder和shell切换
+
+以下两个软件被Alfred的workflow替代
+
+##### ~~go2shell~~
+
 - ~~官网：zipzapmac.com/go2shell~~
 - ~~安装后打开app，设置并运行~~
 - ~~注意事项：~~
@@ -135,7 +150,7 @@ cmd + ,进入设置，找到Profile，选择Profile，比如default，找到keys
   2. ~~在安装iTerm2之前，不要打开APP设置（选择Terminal），否则在Finder中出现的图标为一个？号，测试环境Mojave 10.14.2。安装iTerm2后，选择iTerm2正常~~
   3. ~~如果出现Finder多余的？号，可以右南工具栏，选择自定义工具栏，将多余的？号删除即可（拉下来）~~
 
-#### FinderGo
-- 官网：https://github.com/onmyway133/FinderGo
-- 按官方使用说明，安装后打开，获取系统运行权限(右键打开更好)，然后接Cmd将程序图标拖入Finder工具栏即可；支持Terminal、iTerm、Hyper。
-- 可替换go2shell了，因为相比较go2shell，体验稍好，软件在维护。可换图标和动态切换不同终端
+##### ~~FinderGo~~
+- ~~官网：https://github.com/onmyway133/FinderGo~~
+- ~~按官方使用说明，安装后打开，获取系统运行权限(右键打开更好)，然后接Cmd将程序图标拖入Finder工具栏即可；支持Terminal、iTerm、Hyper。~~
+- ~~可替换go2shell了，因为相比较go2shell，体验稍好，软件在维护。可换图标和动态切换不同终端~~

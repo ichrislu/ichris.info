@@ -13,6 +13,10 @@ tags: ["IDEA"]
   Project Structure → Modules → 删除对应模块右边的文件夹
 - 修改代码提示快捷键（Windows）
   Settings → Keymap → Main menu → Code → Completion → Basic，Basic默认快捷键为Ctrl + space，与Windows切换输入法冲突，可改为Eclipse中的Alt + /（如果Alt + / 被Cyclic Expand Word占用，需要先改一下）
+- 设置项目默认路径
+  Appearance & Behavior → System Settings → Project Opening
+- 设置默认tab
+  Editor → Code Style → Java/XML等，勾选Use tab character和Smart tabs
 
 ### 常用快捷键
 
