@@ -1,7 +1,7 @@
 ---
 title: "macOS安装配置和软件"
 date: "2018-12-26 21:44:55"
-lastMod: "2020-01-06 23:54:25"
+lastMod: "2020-03-12 13:54:25"
 tags: ["macOS", "linux"]
 ---
 
@@ -68,7 +68,7 @@ tags: ["macOS", "linux"]
 - AppCleaner
 - Microsoft Remote Desktop（仅海外App Store有，不能下载，当前是下载的测试版）
 - IINA
-- ~~CotEditor~~，已换为MacVim
+- ~~CotEditor~~，已换为MacVim + Noto
 - ~~FreeDownloadManager~~，已换为Motrix
 - The Unarchiver，eZip
 - 有道云笔记
@@ -134,6 +134,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ##### 配置
 - 安装iTerm2之后，发现option+←和option+→这两组快捷键并不能实现光标按照单词快速移动，因为iTerm2对将这两个快捷键做了其他用途，修改如下：
 cmd + ,进入设置，找到Profile，选择Profile，比如default，找到keys选项卡，在Key Mappings中分别找到option+←和option+→，选择Action为Send Escape Sequence，下面的ESC+分别输入b和f；修改完成重启即可
+- 默认通过ssh连接服务器会超时，可以通过修改配置文件：/etc/ssh/ssh_config，在Host 下添加ServerAliveInterval 60即可，如：
+```conf
+Host *
+        SendEnv LANG LC_*
+        ServerAliveInterval 60
+```
+或修改用户级配置文件~/.ssh/config（没有就创建）
+```conf
+Host *
+     ServerAliveInterval 60
+```
 
 > 官网：www.iterm2.com
 
