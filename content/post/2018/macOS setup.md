@@ -1,7 +1,7 @@
 ---
 title: "macOS安装配置和软件"
 date: "2018-12-26 21:44:55"
-lastMod: "2020-03-12 13:54:25"
+lastMod: "2020-04-07 10:54:25"
 tags: ["macOS", "linux"]
 ---
 
@@ -75,7 +75,7 @@ tags: ["macOS", "linux"]
 
 #### 常规开发工具
 - Postman
-- Goland/IDEA/PyCharm/VS Code
+- Goland/IntelliJ IDEA/PyCharm/VS Code
 - Sequel Pro
 - Sourcetree
 - Git
@@ -110,7 +110,14 @@ tags: ["macOS", "linux"]
 
 ##### workflow
 
-- TODO
+- Coversion：进制转换
+- Hash：算Hash
+- IP Address：获取IP
+- Password Generator：生成随机密码
+- Restart App：重启程序
+- Terminal Finder：Terminal和Finder切换
+- wechatTool：微信工具
+- Youdao Translate：有道翻译
 
 #### zsh
 
