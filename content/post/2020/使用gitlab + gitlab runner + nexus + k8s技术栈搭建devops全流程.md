@@ -169,4 +169,7 @@ docker exec -it gitlab-runner gitlab-runner register
 - [Building Docker images with GitLab CI/CD](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html)
 - [Predefined environment variables reference](https://docs.gitlab.com/ce/ci/variables/predefined_variables.html)
 - [Environments and deployments](https://docs.gitlab.com/ee/ci/environments.html)
+- [Advanced configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
+
+
 
