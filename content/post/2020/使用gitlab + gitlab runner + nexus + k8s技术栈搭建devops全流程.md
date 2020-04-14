@@ -1,7 +1,7 @@
 ---
 title: "使用gitlab + gitlab runner + nexus + k8s技术栈搭建devops全流程"
 date: "2020-04-09 18:45:03"
-lastMod: "2020-04-149 18:50:03"
+lastMod: "2020-04-14 18:50:03"
 tags: ["gitlab", "gitlab runner", "nexus", "k8s", "CICD"]
 ---
 
