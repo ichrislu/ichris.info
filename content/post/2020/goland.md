@@ -19,6 +19,7 @@ GoLand常用设置
 - Go -> Go Modules(vgo)：enable，并设置Proxy
 - Tool -> File Watchers：添加go fmt，可以设置为Global
 - Keymap，Main Menu -> Code -> Completion：Basic(Option + /)，Smart Type(Option + Shift + /)，取消Cyclic Expand Word和Cyclic Expand Word (Backward)
+- MacOS启动调试时报错：go build -i results in "/usr/local/go/pkg/darwin_amd64/runtime/cgo.a: permission denied"，配置Run/Debug Configurations，删除Go tool arguments的-i参数，参考：https://github.com/golang/go/issues/37962
 
 
 
