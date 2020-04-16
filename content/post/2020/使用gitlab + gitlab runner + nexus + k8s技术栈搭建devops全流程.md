@@ -157,6 +157,12 @@ docker exec -it gitlab-runner gitlab-runner register
     restart: unless-stopped
 ```
 
+- 常规配置
+
+1. Docker仓库需要：Security -> Realms：添加Docker Bearer Token Realms
+2. 匿名访问：Security -> Anonymous Access
+3. 添加开发都角色（能上传）：Security -> Roles -> Privileges，添加权限nx-repository-view-*-*-*以及nx-anonymous角色；再添加一个用户到设置为这个角色
+
 - 端口说明
 
 8081：nexus默认web访问端口
@@ -170,6 +176,4 @@ docker exec -it gitlab-runner gitlab-runner register
 - [Predefined environment variables reference](https://docs.gitlab.com/ce/ci/variables/predefined_variables.html)
 - [Environments and deployments](https://docs.gitlab.com/ee/ci/environments.html)
 - [Advanced configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
-
-
 
