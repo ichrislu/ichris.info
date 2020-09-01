@@ -5,7 +5,7 @@ lastMod: "2018-09-16 10:20:36"
 tags: ["go", "compiler"]
 ---
 
-### 问题
+#### 问题
 golang如何在一个平台编译另外一个平台可以执行的文件。比如在mac上编译Windows和linux可以执行的文件。那么我们的问题就设定成：如何在mac上编译64位linux的可执行文件。
 
 #### 解决方案
@@ -44,6 +44,10 @@ GOOS=linux GOARCH=amd64 go build hello.go
 | windows |   386/amd64   |            >=Windows 2000 |
 
 编译其他平台的时候根据上面表格参数执行编译就可以了。
+
+#### 从macOS编译linux/arm
+
+TODO...
 
 #### 扩展阅读
 在网络上的诸多教程中可能会看到下面的编译命令
