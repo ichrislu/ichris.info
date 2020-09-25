@@ -65,7 +65,7 @@ tags: ["macOS", "linux"]
 - Alfred
 - Typora
 - ~~XMind Zen，幕布~~，已换为WPS
-- AppCleaner
+- AppCleaner或Tencent Lemon
 - Microsoft Remote Desktop（仅海外App Store有，不能下载，当前是下载的测试版）
 - IINA
 - Itsycal
@@ -83,7 +83,7 @@ tags: ["macOS", "linux"]
 - AnotherRedisDesktopManager
 - ~~Termius~~，已换为iTerm2 + profile
 
-#### ShadowsocksX-NG
+#### ShadowsocksX-NG（改用V2ray）
 以前一直用的是ShadowsocksX，这次重装改用了ShadowsocksX-NG，据[官网](https://github.com/shadowsocks/ShadowsocksX-NG)介绍，后者是用来替代前者的，同样遇到了小坑。
 
 第1次安装完，启动发现间隙性不能使用，一直找不到原因，于是暂时先停掉ShadowsocksX-NG，换回了ShadowsocksX。
@@ -101,7 +101,7 @@ tags: ["macOS", "linux"]
 
 #### homebrew
 - 官网：https://brew.sh
-- 安装telnet wget zssh
+- 安装telnet wget git
 
 #### Alfred
 
@@ -155,9 +155,9 @@ Host *
 
 > 官网：www.iterm2.com
 
-#### finder和shell切换
+#### ~~finder和shell切换~~
 
-以下两个软件被Alfred的workflow替代
+~~以下两个软件被Alfred的workflow替代~~
 
 ##### ~~go2shell~~
 
