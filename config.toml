@@ -19,7 +19,7 @@ pygmentsCodefencesGuessSyntax = true
 [Params]
 	useHLJS = false
 	since = 2011
-	subtitle = "Elegant Concise Efficient"
+	subtitle = "Graceful Concise Efficient"
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
 	dateFormat = "2006-01-02 15:04"
@@ -48,7 +48,7 @@ pygmentsCodefencesGuessSyntax = true
 	weight = 5
 
 [permalinks]
-	post = "/:year/:filename/"
+	post = "/:filename/"
 
 [taxonomies]
 	tag = "tags"
