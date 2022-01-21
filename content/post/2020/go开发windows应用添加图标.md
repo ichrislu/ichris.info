@@ -34,8 +34,6 @@ rsrc_windows_amd64.exe -manifest manifest -ico inventory.ico -arch amd64 -o inve
 GOOS=windows CGO_ENABLED=1 GOARCH=amd64 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -ldflags '-w -s' .
 ```
 
-
-
 注意，网上找到的资料都会报以下的错：
 
 ```shell

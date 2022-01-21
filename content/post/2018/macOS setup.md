@@ -101,7 +101,7 @@ tags: ["macOS", "linux"]
 
 #### homebrew
 - 官网：https://brew.sh
-- 安装telnet wget git
+- 安装telnet wget git watch tree
 
 #### Alfred
 

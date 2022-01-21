@@ -19,7 +19,7 @@ pygmentsCodefencesGuessSyntax = true
 [Params]
 	useHLJS = false
 	since = 2011
-	subtitle = "Graceful Concise Efficient"
+	subtitle = "简洁 优雅 高效"
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
 	dateFormat = "2006-01-02 15:04"
@@ -57,4 +57,3 @@ pygmentsCodefencesGuessSyntax = true
 date = ["date", "publishDate", "lastmod"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
-

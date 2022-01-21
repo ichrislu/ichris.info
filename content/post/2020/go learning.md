@@ -151,5 +151,6 @@ import -> [mod name / ] package
 go tool dist list
 ```
 
-
-
+### init方法的坑
+只要有某个程序文件(*.go)显式引用了某个带init()方法的包，那么即使该程序文件并没有被整个程序任何地方使用过（比如结构体初始化），那么也会触发被引用包的init()方法。
+举例来说：公共包common在database/redis的package下有一个redis.go文件中有init()方法，引用common包的程序a，有一个程序文件b.go，在b.go中import 了common包的database/redis，那么即使该程序文件b.go在程序a中并没有被使用过，common包的database/redis的init方法仍然会执行。很奇怪！
