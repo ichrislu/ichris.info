@@ -48,7 +48,7 @@ pygmentsCodefencesGuessSyntax = true
 	weight = 5
 
 [permalinks]
-	post = "/:filename/"
+	posts = "/:year/:title/"
 
 [taxonomies]
 	tag = "tags"
