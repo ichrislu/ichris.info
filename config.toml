@@ -16,10 +16,6 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
-[taxonomies]
-	tag = "tags"
-	category = "categories"
-
 [Params]
 	useHLJS = false
 	since = 2011
