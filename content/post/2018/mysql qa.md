@@ -2,6 +2,7 @@
 title: "mysql常见问题"
 date: "2018-03-31 12:09:00"
 lastMod: "2018-08-28 19:22:00"
+categories: ["it"]
 tags: ["mysql"]
 ---
 

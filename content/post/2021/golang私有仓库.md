@@ -2,6 +2,7 @@
 title: "goland私有仓库"
 date: "2021-03-29 19:19:04"
 lastMod: "2021-03-29 19:19:04"
+categories: ["it"]
 tags: ["goland", "私有仓库"]
 ---
 

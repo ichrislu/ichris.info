@@ -2,6 +2,7 @@
 title: "BETWEEN AND的范围"
 date: "2017-01-03 11:19:00"
 lastMod: "2017-01-03 11:19:00"
+categories: ["it"]
 tags: ["mysql", "between and"]
 ---
 

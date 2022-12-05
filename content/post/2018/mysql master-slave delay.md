@@ -2,6 +2,7 @@
 title: "MySQL主从延迟解决方案"
 date: "2018-12-11 14:37:00"
 lastMod: "2018-12-11 14:37:00"
+categories: ["it"]
 tags: ["mysql", "主从同步", "主从延迟"]
 ---
 

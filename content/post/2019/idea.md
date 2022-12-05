@@ -2,6 +2,7 @@
 title: "IntelliJIDEA常见问题"
 date: "2019-12-25 14:06:03"
 lastMod: "2019-12-25 14:06:03"
+categories: ["it"]
 tags: ["IDEA"]
 ---
 

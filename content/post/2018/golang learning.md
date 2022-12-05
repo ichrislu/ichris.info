@@ -2,6 +2,7 @@
 title: "golang learning"
 date: "2018-10-17 16:21:00"
 lastMod: "2018-10-19 14:28:00"
+categories: ["it"]
 tags: ["go"]
 ---
 

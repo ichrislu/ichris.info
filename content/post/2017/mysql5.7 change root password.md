@@ -2,6 +2,7 @@
 title: "MySQL5.7修改root密码"
 date: "2017-07-10 19:46:00"
 lastMod: "2017-07-10 19:46:00"
+categories: ["it"]
 tags: ["mysql"]
 ---
 

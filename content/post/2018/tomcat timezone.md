@@ -2,6 +2,7 @@
 title: "修改tomcat容器时区"
 date: "2018-05-04 14:53:00"
 lastMod: "2018-05-04 14:53:00"
+categories: ["it"]
 tags: ["docker", "tomcat", "时区"]
 ---
 

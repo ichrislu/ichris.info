@@ -2,6 +2,7 @@
 title: "nexus添加的jar包无法下载问题"
 date: "2019-12-27 19:56:03"
 lastMod: "2019-12-27 19:56:03"
+categories: ["it"]
 tags: ["nexus", "jar"]
 ---
 

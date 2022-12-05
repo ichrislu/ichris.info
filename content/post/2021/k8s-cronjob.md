@@ -2,6 +2,7 @@
 title: "k8s-cronjob"
 date: "2021-04-06 13:48:04"
 lastMod: "2021-04-06 13:48:04"
+categories: ["it"]
 tags: ["k8s", "cronjob"]
 ---
 

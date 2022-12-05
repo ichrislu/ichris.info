@@ -2,6 +2,7 @@
 title: "关于mysql驱动的DSN字符问题"
 date: "2018-12-01 17:43:00"
 lastMod: "2018-12-01 17:43:00"
+categories: ["it"]
 tags: ["go", "mysql", "DSN"]
 ---
 

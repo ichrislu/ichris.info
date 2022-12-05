@@ -2,6 +2,7 @@
 title: "自定义资源监控"
 date: "2017-11-22 11:51:00"
 lastMod: "2017-11-22 11:51:00"
+categories: ["it"]
 tags: ["docker", "stat"]
 ---
 

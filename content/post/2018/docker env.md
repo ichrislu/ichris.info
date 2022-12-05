@@ -2,6 +2,7 @@
 title: "Docker环境变量"
 date: "2018-04-27 10:52:00"
 lastMod: "2018-04-27 10:52:00"
+categories: ["it"]
 tags: ["docker", "环境变量"]
 ---
 

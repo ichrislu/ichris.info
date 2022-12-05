@@ -2,6 +2,7 @@
 title: "go plugin从入门到放弃"
 date: "2020-06-27 10:50:03"
 lastMod: "2020-06-29 15:53:03"
+categories: ["it"]
 tags: ["go", "plugin", "插件"]
 ---
 

@@ -2,6 +2,7 @@
 title: "docker registry"
 date: "2018-07-03 16:59:00"
 lastMod: "2018-08-07 16:59:00"
+categories: ["it"]
 tags: ["docker", "registry", "token认证", "oss"]
 ---
 

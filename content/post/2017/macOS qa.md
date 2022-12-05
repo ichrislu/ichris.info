@@ -2,6 +2,7 @@
 title: "MacOS常见问题"
 date: "2017-06-13 12:24:25"
 lastMod: "2017-06-13 12:24:25"
+categories: ["it"]
 tags: ["macOS"]
 ---
 

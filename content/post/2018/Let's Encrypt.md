@@ -2,6 +2,7 @@
 title: "Let's Encrypt - Free SSL/TLS Certificates"
 date: "2018-12-15 21:50:00"
 lastMod: "2018-12-15 21:50:00"
+categories: ["it"]
 tags: ["Let's Encrypt", "SSL", "TLS"]
 ---
 

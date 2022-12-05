@@ -2,6 +2,7 @@
 title: "brew 切换源"
 date: "2020-05-21 11:05:03"
 lastMod: "2020-05-21 11:05:03"
+categories: ["it"]
 tags: ["macOS", "brew"]
 ---
 

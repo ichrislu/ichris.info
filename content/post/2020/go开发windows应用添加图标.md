@@ -2,6 +2,7 @@
 title: "go开发windows应用添加图标"
 date: "2020-05-11 20:50:03"
 lastMod: "2020-05-12 10:43:03"
+categories: ["it"]
 tags: ["go", "manifest", "rsrc"]
 ---
 

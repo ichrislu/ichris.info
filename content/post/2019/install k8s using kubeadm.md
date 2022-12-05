@@ -2,6 +2,7 @@
 title: "kubeadm安装k8s集群"
 date: "2019-06-10 12:28:00"
 lastMod: "2019-06-26 02:06:00"
+categories: ["it"]
 tags: ["kubeadm", "k8s"]
 ---
 

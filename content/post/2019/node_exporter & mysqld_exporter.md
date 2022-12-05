@@ -2,6 +2,7 @@
 title: "Prometheus探针node_exporter和mysqld_exporter服务化安装"
 date: "2019-07-24 19:11:03"
 lastMod: "2019-07-25 10:15:03"
+categories: ["it"]
 tags: ["Prometheus", "node_exporter", "mysqld_exporter"]
 ---
 

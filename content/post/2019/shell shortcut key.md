@@ -2,6 +2,7 @@
 title: "shell快捷键"
 date: "2019-04-04 10:39:04"
 lastMod: "2019-04-04 10:39:04"
+categories: ["it"]
 tags: ["shell", "linux"]
 ---
 

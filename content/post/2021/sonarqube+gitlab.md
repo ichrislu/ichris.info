@@ -2,6 +2,7 @@
 title: "sonarqube+gitlab"
 date: "2021-03-29 19:19:14"
 lastMod: "2021-03-29 19:19:14"
+categories: ["it"]
 tags: ["sonarqube", "gitlab"]
 ---
 

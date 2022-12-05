@@ -2,6 +2,7 @@
 title: "go learning"
 date: "2020-06-15 10:50:03"
 lastMod: "2020-06-15 10:53:03"
+categories: ["it"]
 tags: ["go", "学习笔记"]
 ---
 

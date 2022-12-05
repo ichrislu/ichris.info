@@ -2,6 +2,7 @@
 title: "关于MySQL字段排序规则"
 date: "2017-10-26 18:21:00"
 lastMod: "2017-10-26 18:21:00"
+categories: ["it"]
 tags: ["mysql"]
 ---
 
