@@ -53,7 +53,7 @@ pygmentsCodefencesGuessSyntax = true
 	weight = 4
 
 [permalinks]
-	"/" = ":year/:title/"
+	"/" = "/:year/:title/"
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
