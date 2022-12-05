@@ -4,7 +4,7 @@ defaultContentLanguage = "zh-cn"
 title = "Chris's web"
 theme = "beautifulhugo"
 enableEmoji = true
-enableGitInfo = true
+# enableGitInfo = true
 hasCJKLanguage = true
 paginate = 10
 paginatePath = "page"
@@ -23,7 +23,7 @@ pygmentsCodefencesGuessSyntax = true
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
 	dateFormat = "2006-01-02"
-	commit = "https://github.com/ichrislu/ichris.info/tree/"
+#	commit = "https://github.com/ichrislu/ichris.info/tree/"
 
 [Author]
 	name = "Chris"
