@@ -50,9 +50,6 @@ pygmentsCodefencesGuessSyntax = true
 [permalinks]
 	posts = "/:year/:title/"
 
-[taxonomies]
-	tag = "tags"
-
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
