@@ -22,7 +22,7 @@ pygmentsCodefencesGuessSyntax = true
 	subtitle = "简洁 优雅 高效"
 	logo = "/img/avatar.jpg"
 	favicon = "/img/favicon.png"
-	dateFormat = "2006-01-02 15:04"
+	dateFormat = "2006-01-02"
 	commit = "https://github.com/ichrislu/ichris.info/tree/"
 
 [Author]
