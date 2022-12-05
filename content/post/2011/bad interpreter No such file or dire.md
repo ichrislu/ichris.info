@@ -2,6 +2,7 @@
 title: "/bin/sh^M: bad interpreter: No such file or dire"
 date: "2011-01-26 20:46:04"
 lastMod: "2011-01-26 20:46:04"
+categories: ["it"]
 tags: ["linux", "shell", "编码"]
 ---
 
