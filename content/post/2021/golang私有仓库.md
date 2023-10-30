@@ -1,9 +1,9 @@
 ---
-title: "goland私有仓库"
+title: "golang私有仓库"
 date: "2021-03-29 19:19:04"
 lastMod: "2021-03-29 19:19:04"
 categories: ["it"]
-tags: ["goland", "私有仓库"]
+tags: ["golang", "私有仓库"]
 ---
 
 https://golang.org/cmd/go/#hdr-Modules__module_versions__and_more

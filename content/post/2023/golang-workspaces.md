@@ -1,9 +1,9 @@
 ---
-title: "关于goland的workspaces的理解"
+title: "关于golang的workspaces的理解"
 date: "2023-10-27 17:01:51"
 lastMod: "2023-10-27 17:01:51"
 categories: ["it"]
-tags: ["goland", "workspaces"]
+tags: ["golang", "workspaces"]
 ---
 
 最近重新捡起架构和开发工作，了解了一下golang的“新”特性：workspaces。其实也不算新，只是在上一次做架构和技术选型的时候，golang的最新版本还是1.16.*，而workspaces是Go1.18发布的。
