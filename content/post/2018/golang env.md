@@ -1,9 +1,9 @@
 ---
-title: "go环境配置"
+title: "golang环境配置"
 date: "2018-12-30 00:08:00"
 lastMod: "2019-07-09 23:53:00"
 categories: ["it"]
-tags: ["go"]
+tags: ["golang"]
 ---
 
 环境配置
