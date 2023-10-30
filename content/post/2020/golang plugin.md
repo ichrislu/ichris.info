@@ -1,9 +1,9 @@
 ---
-title: "go plugin从入门到放弃"
+title: "golang plugin从入门到放弃"
 date: "2020-06-27 10:50:03"
 lastMod: "2020-06-29 15:53:03"
 categories: ["it"]
-tags: ["go", "plugin", "插件"]
+tags: ["golang", "plugin", "插件"]
 ---
 
 最开始看到go plugin很兴奋，太实用了。正好手上项目也能用得上，所以花了几天心思去研究一下，所以就有了这篇文章的心德：go plugin从入门到放弃

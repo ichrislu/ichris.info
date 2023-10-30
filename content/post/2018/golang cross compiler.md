@@ -1,9 +1,9 @@
 ---
-title: "go如何进行交叉编译"
+title: "golang如何进行交叉编译"
 date: "2018-09-14 17:50:32"
 lastMod: "2018-09-16 10:20:36"
 categories: ["it"]
-tags: ["go", "compiler"]
+tags: ["golang", "compiler"]
 ---
 
 #### 问题

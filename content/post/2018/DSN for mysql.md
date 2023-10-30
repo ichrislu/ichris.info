@@ -3,7 +3,7 @@ title: "关于mysql驱动的DSN字符问题"
 date: "2018-12-01 17:43:00"
 lastMod: "2018-12-01 17:43:00"
 categories: ["it"]
-tags: ["go", "mysql", "DSN"]
+tags: ["golang", "mysql", "DSN"]
 ---
 
 此次重构发现之前的loc参数一直为空，不太记得是当时刻意为之，还是当时发生了错误未解决

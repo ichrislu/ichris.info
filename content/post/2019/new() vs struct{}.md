@@ -3,7 +3,7 @@ title: "转：go语言内置函数new()和struct{}初始化的区别"
 date: "2019-07-15 12:04:00"
 lastMod: "2019-07-16 14:53:00"
 categories: ["it"]
-tags: ["go", "new", "struct"]
+tags: ["golang", "new", "struct"]
 ---
 
 **new()** 
