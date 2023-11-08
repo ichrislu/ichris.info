@@ -1,7 +1,7 @@
 ---
 title: "go 1.13开发环境搭建"
-date: "2019-11-27 10:50:03"
-lastMod: "2020-04-15 10:50:03"
+date: "2019-11-27"
+lastMod: "2020-04-15"
 categories: ["it"]
 tags: ["golang", "GoLang", "GOPROXY", "nexus", "GoLand"]
 ---

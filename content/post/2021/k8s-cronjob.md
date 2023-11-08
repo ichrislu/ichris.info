@@ -1,7 +1,7 @@
 ---
 title: "k8s-cronjob"
-date: "2021-04-06 13:48:04"
-lastMod: "2021-04-06 13:48:04"
+date: "2021-04-06"
+lastMod: "2021-04-06"
 categories: ["it"]
 tags: ["k8s", "cronjob"]
 ---

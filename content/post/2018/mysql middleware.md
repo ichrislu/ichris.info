@@ -1,7 +1,7 @@
 ---
 title: "MySQL中间件选择"
-date: "2018-11-05 14:52:00"
-lastMod: "2019-08-09 18:22:00"
+date: "2018-11-05"
+lastMod: "2019-08-09"
 categories: ["it"]
 tags: ["mysql", "中间件", "读写分离"]
 ---

@@ -1,7 +1,7 @@
 ---
 title: "golang learning2"
-date: "2020-06-15 10:50:03"
-lastMod: "2020-06-15 10:53:03"
+date: "2020-06-15"
+lastMod: "2020-06-15"
 categories: ["it"]
 tags: ["golang", "学习笔记"]
 ---

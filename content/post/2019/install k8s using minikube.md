@@ -1,7 +1,7 @@
 ---
 title: "使用minikube安装kubernetes单结点集群"
-date: "2019-07-20 16:57:00"
-lastMod: "2019-08-04 01:23:00"
+date: "2019-07-20"
+lastMod: "2019-08-04"
 categories: ["it"]
 tags: ["minikube", "kubernetes"]
 ---

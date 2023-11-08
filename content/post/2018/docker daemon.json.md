@@ -1,7 +1,7 @@
 ---
 title: "Docker配置文件"
-date: "2018-02-01 15:12:00"
-lastMod: "2018-02-01 15:12:00"
+date: "2018-02-01"
+lastMod: "2018-02-01"
 categories: ["it"]
 tags: ["docker"]
 ---

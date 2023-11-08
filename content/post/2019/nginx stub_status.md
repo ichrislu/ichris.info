@@ -1,7 +1,7 @@
 ---
 title: "添加nginx stub_status"
-date: "2019-11-19 10:11:03"
-lastMod: "2019-11-19 10:11:03"
+date: "2019-11-19"
+lastMod: "2019-11-19"
 categories: ["it"]
 tags: ["nginx", "stub_status"]
 ---

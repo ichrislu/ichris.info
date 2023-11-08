@@ -1,7 +1,7 @@
 ---
 title: "fluentd"
-date: "2021-04-06 13:48:03"
-lastMod: "2021-04-06 13:48:03"
+date: "2021-04-06"
+lastMod: "2021-04-06"
 categories: ["it"]
 tags: ["fluentd", "k8s", "日志"]
 ---

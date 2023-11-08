@@ -1,7 +1,7 @@
 ---
 title: "解决MySQL报too many open files的问题"
-date: "2019-04-04 17:05:45"
-lastMod: "2019-04-04 17:05:45"
+date: "2019-04-04"
+lastMod: "2019-04-04"
 categories: ["it"]
 tags: ["ulimit", "mysql"]
 ---

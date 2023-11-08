@@ -1,7 +1,7 @@
 ---
 title: "Windows安装配置MySQL5.7"
-date: "2017-07-18 10:56:21"
-lastMod: "2017-07-18 10:56:21"
+date: "2017-07-18"
+lastMod: "2017-07-18"
 categories: ["it"]
 tags: ["mysql", "windows"]
 ---

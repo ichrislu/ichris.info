@@ -1,7 +1,7 @@
 ---
 title: "使用Nexus3搭建docker registry"
-date: "2018-10-11 12:32:00"
-lastMod: "2019-07-19 19:16:00"
+date: "2018-10-11"
+lastMod: "2019-07-19"
 categories: ["it"]
 tags: ["nexus", "docker registry"]
 ---

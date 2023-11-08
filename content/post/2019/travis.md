@@ -1,7 +1,7 @@
 ---
 title: "Travis初次使用的坑"
-date: "2019-01-07 00:11:03"
-lastMod: "2019-01-07 00:11:03"
+date: "2019-01-07"
+lastMod: "2019-01-07"
 categories: ["it"]
 tags: ["travis", "CI"]
 ---

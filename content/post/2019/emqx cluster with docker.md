@@ -1,7 +1,7 @@
 ---
 title: "emqx集群搭建"
-date: "2019-12-04 11:17:03"
-lastMod: "2019-12-04 11:17:03"
+date: "2019-12-04"
+lastMod: "2019-12-04"
 categories: ["it"]
 tags: ["emqx", "mqtt", "docker"]
 ---

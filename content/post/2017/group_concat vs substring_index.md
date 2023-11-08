@@ -1,7 +1,7 @@
 ---
 title: "group_concat和substring_index"
-date: "2017-06-21 14:09:00"
-lastMod: "2017-06-21 14:09:00"
+date: "2017-06-21"
+lastMod: "2017-06-21"
 categories: ["it"]
 tags: ["mysql", "group_concat", "substring_index"]
 ---

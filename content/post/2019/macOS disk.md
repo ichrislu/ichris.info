@@ -1,7 +1,7 @@
 ---
 title: "mac分区说明"
-date: "2019-03-30 23:59:38"
-lastMod: "2019-03-30 23:59:38"
+date: "2019-03-30"
+lastMod: "2019-03-30"
 categories: ["it"]
 tags: ["macOS", "guid分区", "apple分区"]
 ---

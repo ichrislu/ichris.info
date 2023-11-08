@@ -1,7 +1,7 @@
 ---
 title: "Docker常见问题"
-date: "2017-07-22 00:57:00"
-lastMod: "2017-07-22 00:57:00"
+date: "2017-07-22"
+lastMod: "2017-07-22"
 categories: ["it"]
 tags: ["docker", "常见问题"]
 ---

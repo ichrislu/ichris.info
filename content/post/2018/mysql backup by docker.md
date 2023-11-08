@@ -1,7 +1,7 @@
 ---
 title: "基于容器的MySQL定时备份数据库"
-date: "2018-04-12 11:37:00"
-lastMod: "2018-04-12 11:37:00"
+date: "2018-04-12"
+lastMod: "2018-04-12"
 categories: ["it"]
 tags: ["docker", "备份", "mysql", "mysqldump"]
 ---

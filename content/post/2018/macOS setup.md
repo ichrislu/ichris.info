@@ -1,7 +1,7 @@
 ---
 title: "macOS安装配置和软件"
-date: "2018-12-26 21:44:55"
-lastMod: "2020-07-13 10:54:25"
+date: "2018-12-26"
+lastMod: "2020-07-13"
 categories: ["it"]
 tags: ["macOS", "linux"]
 ---

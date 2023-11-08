@@ -1,7 +1,7 @@
 ---
 title: "golang私有仓库"
-date: "2021-03-29 19:19:04"
-lastMod: "2021-03-29 19:19:04"
+date: "2021-03-29"
+lastMod: "2021-03-29"
 categories: ["it"]
 tags: ["golang", "私有仓库"]
 ---

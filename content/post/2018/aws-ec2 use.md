@@ -1,7 +1,7 @@
 ---
 title: "AWS-EC2搭建hugo+caddy，安装shadowsocks手记"
-date: "2018-12-02 00:56:46"
-lastMod: "2019-11-18 18:56:46"
+date: "2018-12-02"
+lastMod: "2019-11-18"
 categories: ["it"]
 tags: ["AWS", "EC2", "shadowsocks", "hugo", "caddy"]
 ---

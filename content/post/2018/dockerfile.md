@@ -1,7 +1,7 @@
 ---
 title: "关于Dockerfile"
-date: "2018-04-20 12:16:00"
-lastMod: "2018-04-20 12:16:00"
+date: "2018-04-20"
+lastMod: "2018-04-20"
 categories: ["it"]
 tags: ["docker"]
 ---

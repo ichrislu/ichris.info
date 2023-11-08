@@ -1,7 +1,7 @@
 ---
 title: "Travis使用AWS短信实现构建部署完成后短信通知"
-date: "2019-01-09 19:34:01"
-lastMod: "2019-01-09 19:34:01"
+date: "2019-01-09"
+lastMod: "2019-01-09"
 categories: ["it"]
 tags: ["travis", "AWS", "SNS"]
 ---

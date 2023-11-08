@@ -1,7 +1,7 @@
 ---
 title: "关于golang的workspaces的理解"
-date: "2023-10-27 17:01:51"
-lastMod: "2023-10-27 17:01:51"
+date: "2023-10-27"
+lastMod: "2023-10-27"
 categories: ["it"]
 tags: ["golang", "workspaces"]
 ---

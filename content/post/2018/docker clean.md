@@ -1,7 +1,7 @@
 ---
 title: "清理docker数据"
-date: "2018-03-02 15:38:00"
-lastMod: "2018-03-02 15:38:00"
+date: "2018-03-02"
+lastMod: "2018-03-02"
 categories: ["it"]
 tags: ["docker", "清理"]
 ---

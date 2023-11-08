@@ -1,7 +1,7 @@
 ---
 title: "mysql federated引擎使用"
-date: "2019-12-31 14:56:03"
-lastMod: "2019-12-31 14:56:03"
+date: "2019-12-31"
+lastMod: "2019-12-31"
 categories: ["it"]
 tags: ["mysql", "federated", "跨服务操作"]
 ---

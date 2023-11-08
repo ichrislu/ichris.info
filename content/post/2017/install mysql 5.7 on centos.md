@@ -1,7 +1,7 @@
 ---
 title: "CentOS安装mysql5.7"
-date: "2017-07-20 16:40:00"
-lastMod: "2017-07-20 16:40:00"
+date: "2017-07-20"
+lastMod: "2017-07-20"
 categories: ["it"]
 tags: ["CentOS", "mysql"]
 ---
