@@ -70,7 +70,7 @@ vi /etc/hosts
 
 ```
 
-### 3、*安装基础工具
+### 3、*安装基础工具*
 可选步骤，个人喜好
 
 ```bash
@@ -210,23 +210,22 @@ TODO...
 TODO...
 ```
 
-九、安装crictl工具
-可选
+## 九、安装crictl工具
+可选，下载地址：<https://github.com/kubernetes-sigs/cri-tools>
 
-下载地址：<https://github.com/kubernetes-sigs/cri-tools>
-```base
+```bash
 # 解压安装
 sudo tar zxvf crictl-v1.28.0-linux-amd64.tar.gz -C /usr/local/bin
 
 # 创建配置文件
-sudo cat <<EOF | sudo tee /etc/crictl.yaml
-> runtime-endpoint: unix:///run/containerd/containerd.sock
-> image-endpoint: unix:///run/containerd/containerd.sock
-> timeout: 2
-> debug: false
-> pull-image-on-create: false
-> disable-pull-on-run: false
-> EOF
+cat <<EOF | sudo tee /etc/crictl.yaml
+runtime-endpoint: unix:///run/containerd/containerd.sock
+image-endpoint: unix:///run/containerd/containerd.sock
+timeout: 2
+debug: false
+pull-image-on-create: false
+disable-pull-on-run: false
+EOF
 
 # 验证
 crictl pods
