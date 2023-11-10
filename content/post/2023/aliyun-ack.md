@@ -3,7 +3,7 @@ title: "阿里云的ACK Pro托管版使用配置"
 date: "2023-11-07"
 lastMod: "2023-11-08"
 categories: ["it"]
-tags: ["k8s", "k8s"]
+tags: ["k8s"]
 ---
 
 最近做开发基础架构设计，又经历了一次痛苦过程，记录一下。
