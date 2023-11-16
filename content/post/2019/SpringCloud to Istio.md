@@ -3,7 +3,7 @@ title: "从Spring Cloud到Istio，架构升级（更新中……）"
 date: "2019-07-15"
 lastMod: "2019-07-25"
 categories: ["it"]
-tags: ["Spring Cloud", "kubernetes"]
+tags: ["Spring Cloud", "k8s"]
 ---
 
 ## 架构从SpringCloud升级到Istio

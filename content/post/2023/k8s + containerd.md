@@ -1,7 +1,7 @@
 ---
 title: "安装k8s基于containerd"
 date: "2023-11-09"
-lastMod: "2023-11-09"
+lastMod: "2023-11-15"
 categories: ["it"]
 tags: ["k8s", "containerd"]
 ---
@@ -19,7 +19,14 @@ tags: ["k8s", "containerd"]
 |Worker1|k8s-worker1|192.168.2.232/22|
 |Worker2|k8s-worker2|192.168.2.233/22|
 
-### 2、关闭系统功能
+### 2、*安装基础工具*
+可选步骤，个人喜好
+
+```bash
+sudo yum install -y vim telnet wget unzip epel-release
+```
+
+### 3、关闭系统功能
 所有节点都执行
 
 ```bash
@@ -55,7 +62,6 @@ sudo modprobe br_netfilter
 sudo sysctl -p
 ```
 
-*以下不确定是否需要操作*
 ```bash
 # 安装时间同步服务，确保三台服务器时间准确
 sudo yum -y install chrony
@@ -63,18 +69,11 @@ sudo systemctl start chronyd
 sudo systemctl enable chronyd
 
 # 修改hosts
-vi /etc/hosts
+vim /etc/hosts
 192.168.2.231 k8s-master
 192.168.2.232 k8s-worker1
 192.168.2.233 k8s-worker2
 
-```
-
-### 3、*安装基础工具*
-可选步骤，个人喜好
-
-```bash
-sudo yum install -y vim telnet wget unzip epel-release
 ```
 
 ## 二、安装containerd
@@ -90,7 +89,7 @@ sudo tar Cxzvf /usr/local containerd-1.7.8-linux-amd64.tar.gz
 ### 2、修改配置
 ```bash
 sudo mkdir /etc/containerd
-sudo containerd config default > /etc/containerd/config.toml
+containerd config default | sudo tee -a /etc/containerd/config.toml
 sudo vim /etc/containerd/config.toml
 
 #SystemdCgroup的值改为true
@@ -142,8 +141,7 @@ sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.3.0.tgz
 所有节点都执行
 
 ```bash
-# 添加阿里云的kubernetes源
-sudo cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+# 添加阿里云的kubernetes源：/etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
 baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
@@ -151,7 +149,6 @@ enabled=1
 gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-EOF
 
 # 安装最新版
 sudo yum install -y kubeadm kubelet kubectl
@@ -190,7 +187,7 @@ sudo kubeadm init --apiserver-advertise-address 192.168.2.231 --image-repository
 wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 
 # 安装网络插件
-sudo kubectl apply -f kube-flannel.yml
+kubectl apply -f kube-flannel.yml
 
 # 验证
 kubectl get node
@@ -204,10 +201,12 @@ Worker节点执行
 
 ```bash
 # 加入集群
-TODO...
+kubeadm join 192.168.2.231:6443 --token ******************** \
+	--discovery-token-ca-cert-hash sha256:******************************************************************
 
 # 验证
-TODO...
+# master节点
+kubectl get nodes
 ```
 
 ## 九、安装crictl工具
@@ -217,23 +216,34 @@ TODO...
 # 解压安装
 sudo tar zxvf crictl-v1.28.0-linux-amd64.tar.gz -C /usr/local/bin
 
-# 创建配置文件
-cat <<EOF | sudo tee /etc/crictl.yaml
+# 创建配置文件:/etc/crictl.yaml
 runtime-endpoint: unix:///run/containerd/containerd.sock
 image-endpoint: unix:///run/containerd/containerd.sock
 timeout: 2
 debug: false
 pull-image-on-create: false
 disable-pull-on-run: false
-EOF
 
 # 验证
 crictl pods
 ```
 
-
 ## 遗留问题
-/run/containerd/containerd.sock一直报没有权限，不确定原因
+### 一、/run/containerd/containerd.sock一直报没有权限，不确定原因，需要手动添加权限：`sudo usermod -aG root $USER`
+### 二、执行`kubeadm init`和`kubeadm join`一直报错：
+```
+[preflight] Running pre-flight checks
+error execution phase preflight: [preflight] Some fatal errors occurred:
+  [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+```
+再次运行以下指令解决：
+```
+sudo modprobe ip_vs_rr
+sudo modprobe br_netfilter
+```
+以上指令重启即失效？
 
 ## 参考
 - <https://github.com/containerd/containerd/blob/main/docs/getting-started.md>

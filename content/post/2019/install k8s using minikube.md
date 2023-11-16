@@ -3,7 +3,7 @@ title: "使用minikube安装kubernetes单结点集群"
 date: "2019-07-20"
 lastMod: "2019-08-04"
 categories: ["it"]
-tags: ["minikube", "kubernetes"]
+tags: ["minikube", "k8s"]
 ---
 
 从网上查到的资料来看，使用minikube安装kubernetes单结点集群相对kubeadm安装kubernetes集群简单多了，但是实践过程还是遇到一些问题，记录下来，用作交流：
