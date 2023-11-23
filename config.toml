@@ -21,7 +21,7 @@ pygmentsCodefencesGuessSyntax = true
 	since = 2011
 	subtitle = "简洁 优雅 高效"
 	logo = "/img/avatar.jpg"
-	favicon = "/img/favicon.png"
+	favicon = "/img/favicon.ico"
 	dateFormat = "2006-01-02"
 
 [Author]
