@@ -105,5 +105,4 @@ Scopes：api/read_user
 3. 配置 -> 权限：Force user authentication：勾选
 
 ### 参考
-
-1. https://stackoverflow.com/questions/55617053/sonarqube-remove-code-view-for-anyone-group
+- <https://stackoverflow.com/questions/55617053/sonarqube-remove-code-view-for-anyone-group>

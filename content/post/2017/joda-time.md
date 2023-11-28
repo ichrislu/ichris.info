@@ -87,4 +87,4 @@ Extended      Basic       Fields
 ```
 
 ### Quote
-https://www.ibm.com/developerworks/cn/java/j-jodatime.html
+- <https://www.ibm.com/developerworks/cn/java/j-jodatime.html>

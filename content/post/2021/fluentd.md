@@ -57,6 +57,6 @@ k8s官方配置：https://github.com/elastic/beats/blob/master/deploy/kubernetes
 使用ecs-logrus：https://www.elastic.co/guide/en/ecs-logging/go-logrus/current/setup.html
 
 官方文档：
-https://www.elastic.co/guide/en/beats/filebeat/7.12/decode-json-fields.html
-https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html
-https://www.elastic.co/guide/en/beats/filebeat/7.12/filebeat-input-container.html
+- <https://www.elastic.co/guide/en/beats/filebeat/7.12/decode-json-fields.html>
+- <https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html>
+- <https://www.elastic.co/guide/en/beats/filebeat/7.12/filebeat-input-container.html>

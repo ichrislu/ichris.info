@@ -26,7 +26,5 @@ GoLand常用设置
 
 
 参考：
-
- https://goproxy.io/ 
-
- https://tip.golang.org/doc/go1.13#version-validation 
+- <https://goproxy.io/>
+- <https://tip.golang.org/doc/go1.13#version-validation>

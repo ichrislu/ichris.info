@@ -29,4 +29,4 @@ SHOW GLOBAL VARIABLES LIKE 'open%'
 
 
 见官方文档
-https://dev.mysql.com/doc/refman/5.7/en/using-systemd.html
+- <https://dev.mysql.com/doc/refman/5.7/en/using-systemd.html>

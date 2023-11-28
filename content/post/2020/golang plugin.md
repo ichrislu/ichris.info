@@ -49,7 +49,7 @@ go build -buildmode=plugin -gcflags=-trimpath=$GOPATH -asmflags=-trimpath=$GOPAT
 个人的感觉这东西还不成熟，还不能大量用于生产环境，先暂停研究，转向程序整体自动下载更新替换，并重启的方案。
 
 参考文章：
-https://studygolang.com/articles/17365
-https://www.jianshu.com/p/b51e955eb1a7
-https://mojotv.cn/go/golang-plugin-tutorial
-https://studygolang.com/articles/13179
+- <https://studygolang.com/articles/17365>
+- <https://www.jianshu.com/p/b51e955eb1a7>
+- <https://mojotv.cn/go/golang-plugin-tutorial>
+- <https://studygolang.com/articles/13179>
