@@ -12,16 +12,20 @@ tags: ["linux", "ssl", "https", "证书"]
 **以下操作，最好用root用户，不建议sudo**
 
 ### 创建CA
+```bash
 openssl genrsa -des3 -out ca.key 4096
 openssl req -sha256 -new -x509 -days 825 -key ca.key -out ca.crt \
     -subj "/C=CN/ST=GuangDong/L=ShenZhen/O=Co/OU=domain.com/CN=Co. Tech"
+```
 
 ### 创建证书私钥
+```bash
 私钥密码是必须的
 `openssl genrsa -des3 -out server.key 4096`
 
 去掉私钥密码
 `openssl rsa -in server.key -out server.key`
+```
 
 ### 创建证书请求文件
 ```bash
@@ -38,10 +42,11 @@ openssl req -new \
 ### 初始化文件
 当前操作系统如果是第1次执行：为了能使证书可以工作还需要创建两个文件。  
 建议用root！！第1行可以sudo，第2行必须root
+```bash
+touch /etc/pki/CA/index.txt
 
-`touch /etc/pki/CA/index.txt`
-
-`echo 01 > /etc/pki/CA/serial`
+echo 01 > /etc/pki/CA/serial
+```
 
 ### 签名
 ```bash
