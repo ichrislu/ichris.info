@@ -14,7 +14,7 @@ tags: ["linux", "ssl", "https", "证书"]
 ### 创建CA
 openssl genrsa -des3 -out ca.key 4096
 openssl req -sha256 -new -x509 -days 825 -key ca.key -out ca.crt \
-    -subj "/C=CN/ST=GuangDong/L=ShenZhen/O=CEM/OU=www.cem-tech.cn/CN=CEM Tech"
+    -subj "/C=CN/ST=GuangDong/L=ShenZhen/O=Co/OU=domain.com/CN=Co. Tech"
 
 ### 创建证书私钥
 私钥密码是必须的
@@ -28,7 +28,7 @@ openssl req -sha256 -new -x509 -days 825 -key ca.key -out ca.crt \
 openssl req -new \
     -sha256 \
     -key server.key \
-    -subj "/C=CN/ST=GuangDong/L=ShenZhen/O=CEM/OU=www.cem-tech.cn/CN=CEM Tech" \
+    -subj "/C=CN/ST=GuangDong/L=ShenZhen/O=Co/OU=domain.com/CN=Co. Tech" \
     -reqexts SAN \
     -config <(cat /etc/pki/tls/openssl.cnf \
         <(printf "extendedKeyUsage=id-kp-serverAuth\n[SAN]\nsubjectAltName=DNS:192.168.1.10,IP:192.168.1.10")) \
