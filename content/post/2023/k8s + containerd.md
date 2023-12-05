@@ -1,7 +1,7 @@
 ---
 title: "安装k8s基于containerd"
 date: "2023-11-09"
-lastMod: "2023-11-15"
+lastMod: "2023-12-04"
 categories: ["it"]
 tags: ["k8s", "containerd"]
 ---
@@ -207,6 +207,23 @@ kubeadm join 192.168.2.231:6443 --token ******************** \
 # 验证
 # master节点
 kubectl get nodes
+```
+
+修改配置，允许拉取http仓库镜像（开发环境一般没有配HTTPS）
+```bash
+# 创建配置文件路径
+mkdir -p /etc/containerd/certs.d/<ip>:<port>
+
+# 编辑配置文件
+vim /etc/containerd/certs.d/<ip>:<port>/hosts.toml
+
+server = "http://<ip>:<port>"
+
+[host."http://<ip>:<port>"]
+  capabilities = ["pull", "resolve", "push"]
+  skip_verify = true
+
+systemctl restart containerd
 ```
 
 ## 九、安装crictl工具

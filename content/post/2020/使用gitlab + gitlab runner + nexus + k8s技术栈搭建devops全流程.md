@@ -1,7 +1,7 @@
 ---
 title: "使用gitlab + gitlab runner + nexus + k8s技术栈搭建devops全流程"
 date: "2020-04-09"
-lastMod: "2020-04-14"
+lastMod: "2023-12-05"
 categories: ["it"]
 tags: ["gitlab", "gitlab runner", "nexus", "k8s", "CICD"]
 ---
@@ -72,10 +72,14 @@ nginx['ssl_certificate'] = "/etc/gitlab/trusted-certs/xxx.crt"
 nginx['ssl_certificate_key'] = "/etc/gitlab/trusted-certs/xxx.key"
 ```
 
+- 应用配置：
+`gitlab-ctl reconfigure`
+
 - 常规配置，管理员登录
 
 1. 管理中心，外观，自定义Logo/登录注册页面等
 2. 管理中心，设置，网络，外发请求，勾选：<u>允许Webhook和服务对本地网络的请求</u> 和 <u>允许系统钩子向本地网络发送的请求</u>
+3. 管理中心，创建runner
 
 - 添加kubernetes集群，可选global，group，project范围，以group为例：找到group配置页面，选择Kubernetes，添加，填入：集群名、API URL，CA证书，Token等，保存即可
 
@@ -108,6 +112,9 @@ kubectl -n <namespace> describe secret $(kubectl -n <namespace> get secret | gre
     restart: unless-stopped
 ```
 
+运行报错：`ERROR: Failed to load config stat /etc/gitlab-runner/config.toml: no such file or directory  builds=0 max_builds=1`
+先不管，注册到Gitlab后会生成配置文件。
+
 - 配置文件修改：
 
 ```toml
@@ -130,18 +137,27 @@ docker exec -it gitlab-runner gitlab-runner register
 1. 使用docker方式，映宿主机docker.sock文件，这样在容器内执行的docker操作与在宿主机一致，比如在容器内创建的镜像，等同于在宿主机创建的镜像（因此有一定风险性）
 2. 映射宿主机config.json，这样在宿主机执行登录过docker registry的情况下，容器内可以不用做登录操作，就可以直接pull/push，这种方式个人感觉比在容器中每次在pull/push前执行login命令更简单，更安全（只需要在宿主机登录，密码并未泄露；反之，还需要在gitlab中配置docker registry地址，访问的用户名和密码）
 3. 对于自签名证书的问题，参考：
-   https://docs.gitlab.com/runner/configuration/tls-self-signed.html
-   https://docs.gitlab.com/runner/install/docker.html#installing-trusted-ssl-server-certificates
+  - <https://docs.gitlab.com/runner/configuration/tls-self-signed.html>
+  - <https://docs.gitlab.com/runner/install/docker.html#installing-trusted-ssl-server-certificates>
 
 - 遗留问题
 
 1. gitlab-runner执行产生的容器，在某些情况下好像并不会自动删除（有可能是构建失败的情况下）
 2. gitlab-runner运行过程中可能会执行docker build，导致宿主机会产生大量未使用的image，后期考虑定期执行docker image prune -y，加入cron
-3. 网上说不建议gitlab与gitlab-runner安装在同一台服务器，个人猜测原因可能是ip相同；公司服务器是多网卡的，后期考虑激活第2个网卡，gitlab-runner绑定到第2个网卡的IP上（需要把gitlab绑定到第1个网卡，因为有评书限制），参考：https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-session_server-section
+3. 网上说不建议gitlab与gitlab-runner安装在同一台服务器，个人猜测原因可能是ip相同；公司服务器是多网卡的，后期考虑激活第2个网卡，gitlab-runner绑定到第2个网卡的IP上（需要把gitlab绑定到第1个网卡，因为有证书限制），参考：https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-session_server-section
 
 ### nexus
 
-- 使用compose安装
+- 使用compose安装，2个注意点：
+  1. 持久目录由Nexus进程写入，该进程以UID 200运行，因此需要添加权限
+  ```bash
+  sudo mkdir /data/nexus
+  sudo chown -R 200 /data/nexus
+  ```
+  2. 管理员账号admin，默认密码保存在卷内文件admin.password中
+  ```bash
+  cat /data/nexus/admin.password
+  ```
 
 ```yaml
   nexus:
@@ -149,10 +165,10 @@ docker exec -it gitlab-runner gitlab-runner register
     ports:
     - '8081:8081'
     - '5000:5000'
-    - '5001:5001'
     environment:
     - INSTALL4J_ADD_VM_PARAMS=-Xms4g -Xmx8g -XX:MaxDirectMemorySize=4g
     volumes:
+    - /etc/localtime:/etc/localtime:ro
     - /data/nexus:/nexus-data
     container_name: nexus
     restart: unless-stopped
@@ -162,13 +178,12 @@ docker exec -it gitlab-runner gitlab-runner register
 
 1. Docker仓库需要：Security -> Realms：添加Docker Bearer Token Realms
 2. 匿名访问：Security -> Anonymous Access
-3. 添加开发都角色（能上传）：Security -> Roles -> Privileges，添加权限nx-repository-view-*-*-*以及nx-anonymous角色；再添加一个用户到设置为这个角色
+3. 添加开发者角色（能上传）：Security -> Roles -> Privileges，添加权限`nx-repository-view-*-*-*`以及`nx-anonymous`角色；再添加一个用户到设置为这个角色
 
 - 端口说明
 
 8081：nexus默认web访问端口
 5000：docker registry端口
-5001：docker proxy端口
 
 ### 参考
 

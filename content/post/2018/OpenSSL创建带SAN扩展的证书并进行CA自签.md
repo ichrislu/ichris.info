@@ -21,10 +21,10 @@ openssl req -sha256 -new -x509 -days 825 -key ca.key -out ca.crt \
 ### 创建证书私钥
 ```bash
 私钥密码是必须的
-`openssl genrsa -des3 -out server.key 4096`
+openssl genrsa -des3 -out server.key 4096
 
 去掉私钥密码
-`openssl rsa -in server.key -out server.key`
+openssl rsa -in server.key -out server.key
 ```
 
 ### 创建证书请求文件
