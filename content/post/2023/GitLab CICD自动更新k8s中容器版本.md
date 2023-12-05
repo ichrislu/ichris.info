@@ -1,5 +1,5 @@
 ---
-title: "GitLab CICD自动更新k8s版本"
+title: "GitLab CICD自动更新k8s中容器版本"
 date: "2023-12-05"
 lastMod: "2023-12-05"
 categories: ["it"]
