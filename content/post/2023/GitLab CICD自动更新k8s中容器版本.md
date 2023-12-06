@@ -45,5 +45,12 @@ k8s-deploy-dev:
     - if: '$CI_COMMIT_BRANCH == "main"'
 ```
 
+nexus、gitlab、gitlab-runner基于docker compose安装，因为是本地环境，nexus中docker registry没有配置https，所以需要在配置文件`/etc/docker/daemon.json`中添加如下：
+```json
+"insecure-registries": [
+    "<ip>:<port>"
+]
+```
+
 参考：
 - <https://zhuanlan.zhihu.com/p/654029372>
