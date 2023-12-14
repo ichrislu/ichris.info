@@ -9,7 +9,7 @@ hasCJKLanguage = true
 paginate = 10
 paginatePath = "page"
 googleAnalytics = "UA-137163651-1"
-# uglyurls = true
+# uglyURLs = true
 
 pygmentsOptions = "linenos=table"
 pygmentsCodeFences = true
