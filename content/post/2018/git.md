@@ -6,10 +6,10 @@ categories: ["it"]
 tags: ["git"]
 ---
 
-![Alt text](image.png)
+![](image.png)
 
-![Alt text](image-1.png)
+![](image-1.png)
 
-![Alt text](image-2.png)
+![](image-2.png)
 
-![Alt text](image-3.png)
+![](image-3.png)
