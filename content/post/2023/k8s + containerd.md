@@ -69,11 +69,10 @@ sudo systemctl start chronyd
 sudo systemctl enable chronyd
 
 # 修改hosts
-vim /etc/hosts
+sudo vim /etc/hosts
 192.168.2.231 k8s-master
 192.168.2.232 k8s-worker1
 192.168.2.233 k8s-worker2
-
 ```
 
 ## 二、安装containerd
@@ -109,8 +108,8 @@ wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.ser
 sudo mkdir -p /usr/lib/systemd/system
 sudo mv containerd.service /usr/lib/systemd/system
 
-systemctl daemon-reload
-systemctl enable --now containerd
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
 ```
 
 ### 4、验证
@@ -177,7 +176,7 @@ sudo kubeadm init --apiserver-advertise-address 192.168.2.231 --image-repository
 --pod-network-cidr=10.244.0.0/16
 ```
 
-执行完成后，还有一系列操作，待做！
+执行完成后，根据提示配置`.kube/config`，照抄指令，略！
 
 ## 七、安装网络插件flannel
 仅Master节点执行
@@ -201,7 +200,7 @@ Worker节点执行
 
 ```bash
 # 加入集群
-kubeadm join 192.168.2.231:6443 --token ******************** \
+sudo kubeadm join 192.168.2.231:6443 --token ******************** \
 	--discovery-token-ca-cert-hash sha256:******************************************************************
 
 # 验证
@@ -212,10 +211,10 @@ kubectl get nodes
 修改配置，允许拉取http仓库镜像（开发环境一般没有配HTTPS）
 ```bash
 # 创建配置文件路径
-mkdir -p /etc/containerd/certs.d/<ip>:<port>
+sudo mkdir -p /etc/containerd/certs.d/<ip>:<port>
 
 # 编辑配置文件
-vim /etc/containerd/certs.d/<ip>:<port>/hosts.toml
+sudo vim /etc/containerd/certs.d/<ip>:<port>/hosts.toml
 
 server = "http://<ip>:<port>"
 
@@ -223,7 +222,7 @@ server = "http://<ip>:<port>"
   capabilities = ["pull", "resolve", "push"]
   skip_verify = true
 
-systemctl restart containerd
+sudo systemctl restart containerd
 ```
 
 ## 九、安装crictl工具
