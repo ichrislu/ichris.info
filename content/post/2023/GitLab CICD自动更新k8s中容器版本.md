@@ -50,7 +50,9 @@ nexus、gitlab、gitlab-runner基于docker compose安装，因为是本地环境
 1. Docker修改方案：/etc/docker/daemon.json
 ```json
 "insecure-registries": ["<ip>:<port>"]
-
+```
+```bash
+# 重启生效
 sudo systemctl restart docker
 ```
 
@@ -63,7 +65,9 @@ sudo systemctl restart docker
   [plugins."io.containerd.grpc.v1.cri".registry.configs]
     [plugins."io.containerd.grpc.v1.cri".registry.configs."<IP>:<PORT>".tls]
       insecure_skip_verify = true
-
+```
+```bash
+# 重启生效
 sudo systemctl restart containerd
 ```
 
