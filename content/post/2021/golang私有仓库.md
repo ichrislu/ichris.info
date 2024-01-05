@@ -19,10 +19,12 @@ https://sagikazarmark.hu/blog/vanity-import-paths-in-go/
 https://medium.com/@dayakar88/a-guide-to-solve-no-go-import-meta-tags-for-private-repositories-with-go-modules-6b9237f9c9f
 
 为了gitlab-ci在构建时拉取私有仓库依赖，构建工作使用的docker容器的dockerfile需要加上：
+```dockerfile
 RUN git config --global url."git@192.168.1.10:".insteadOf "https://192.168.1.10/"
 COPY gitlab-ci /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 RUN echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+```
 
 其中的id_rsa为部署密钥，需要在私有仓库中添加部署密钥
 上述参考
