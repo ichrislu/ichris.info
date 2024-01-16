@@ -42,20 +42,25 @@ tags: ["golang", "go mod", "git"]
 # 实践：
 ## 运行构建容器
 ```dockerfile
-# 略...
+FROM bitnami/golang:1.21.6
+ENV LANG zh_CN.UTF-8
+ENV LC_ALL C.UTF-8
+COPY localtime /etc/localtime
+RUN rm -fr /go/*
 
-# 
+# 配置环境
 RUN go env -w GOPROXY="https://goproxy.cn,direct" GONOPROXY="git.<domain>.com/*" GONOSUMDB="git.<domain>.com/*" GOPRIVATE="git.<domain>.com/*"
 RUN git config --global url."git@192.168.100.8:".insteadOf "https://192.168.100.8/"
+
+# 安装openssh-client
+RUN apt-get update && apt-get install -y openssh-client
 
 # ssh验证依赖
 COPY id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 
-# 部分基础容器没有对应的目录和文件，需要手动创建
-RUN mkdir -p /etc/ssh && touch /etc/ssh/ssh_config
 # 因为是非交互方式，需要禁用主机公钥检查
-RUN echo $'Host *\n    StrictHostKeyChecking no' >> /etc/ssh/ssh_config
+RUN echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 ```
 
 ## 开发环境
@@ -156,6 +161,7 @@ func proxyHandler(ctx *gin.Context) {
 1. 新建域名解析
 2. k8s创建deployment/pod，容器环境变量配置：
 	```env
+	# https方式为：https://192.168.100.8/<group>
 	GIT_BASE_URL=ssh://git@192.168.100.8/<group>
 	GIN_MODE=release
 	```
