@@ -85,7 +85,7 @@ import (
 	"os"
 )
 
-var temptUrl, gitBaseUrl, project string
+var gitBaseUrl string
 
 func init() {
 	var ok bool
@@ -100,19 +100,19 @@ func main() {
 	r := gin.Default()
 	r.LoadHTMLFiles("template.tmpl")
 
-	r.GET("/:project", proxyHandler)
+	r.GET("/:module", proxyHandler)
 
 	_ = r.Run(":8080")
 }
 
 func proxyHandler(ctx *gin.Context) {
-	project = ctx.Param("project")
-	temptUrl = ctx.Request.Host
+	module := ctx.Param("module")
+	feignHost := ctx.Request.Host
 
 	ctx.HTML(http.StatusOK, "template.tmpl", gin.H{
-		"tempt_url":    temptUrl,
+		"feign_host":   feignHost,
 		"git_base_url": gitBaseUrl,
-		"project":      project,
+		"module":       module,
 	})
 }
 ```
@@ -124,8 +124,8 @@ func proxyHandler(ctx *gin.Context) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="go-import" content="{{ .tempt_url }}/{{ .project }} git {{ .git_base_url }}/{{ .project }}">
-    <meta name="go-source" content="{{ .tempt_url }}/{{ .project }} {{ .git_base_url }}/{{ .project }} {{ .tempt_url }}/{{ .project }}/-/tree/master{/dir} {{ .tempt_url }}/{{ .project }}/-/blob/master{/dir}/{file}#L{line}">
+    <meta name="go-import" content="{{ .feign_host }}/{{ .module }} git {{ .git_base_url }}/{{ .module }}">
+    <meta name="go-source" content="{{ .feign_host }}/{{ .module }} {{ .git_base_url }}/{{ .module }} {{ .feign_host }}/{{ .module }}/-/tree/master{/dir} {{ .feign_host }}/{{ .module }}/-/blob/master{/dir}/{file}#L{line}">
     <title>Go Repo Proxy</title>
   </head>
   <body>
