@@ -40,8 +40,13 @@ pvc与pod类似。pod消耗节点，pvc消耗pv；pod请求CPU/内存，pvc请�
 # 安装nfs，rpcbind待依赖会自动安装
 sudo yum install -y nfs-utils
 
-# 禁止firewalld，这是最简单的办法！！！开发环境简单操作，不值得研究开放端口。否则会报错：mount.nfs: No route to host
-sudo systemctl disable firewalld
+# 开放firewalld端口，否则会报错：mount.nfs: No route to host
+sudo firewall-cmd --zone=public --add-service=rpc-bind --permanent
+sudo firewall-cmd --zone=public --add-service=mountd --permanent
+sudo firewall-cmd --zone=public --add-service=nfs --permanent
+
+# 重新加载firewalld
+sudo firewall-cmd --reload
 
 # 编辑nfs配置文件
 sudo vim /etc/exports
@@ -122,3 +127,8 @@ sudo yum install -y nfs-utils
 sudo systemctl enable nfs
 sudo systemctl start nfs
 ```
+
+# 参考
+
+https://zhuanlan.zhihu.com/p/399726898
+
