@@ -1,7 +1,7 @@
 ---
 title: "安装k8s基于containerd"
 date: "2023-11-09"
-lastMod: "2023-12-04"
+lastMod: "2024-06-11"
 categories: ["it"]
 tags: ["k8s", "containerd"]
 ---
@@ -54,12 +54,14 @@ net.bridge.bridge-nf-call-iptables     = 1
 net.ipv4.ip_forward                 = 1
 vm.swappiness                         = 0
 
-# 加载以下2个模块
-sudo modprobe ip_vs_rr
-sudo modprobe br_netfilter
+# 加载以下2个模块（root用户）
+cat << EOF > /etc/modules-load.d/k8s.conf
+ip_vs_rr # 不确定这个是否还需要，待验证
+br_netfilter
+EOF
 
 # 生效配置
-sudo sysctl -p
+sysctl -p
 ```
 
 ```bash
@@ -246,7 +248,7 @@ crictl pods
 
 ## 遗留问题
 ### 一、/run/containerd/containerd.sock一直报没有权限，不确定原因，需要手动添加权限：`sudo usermod -aG root $USER`
-### 二、执行`kubeadm init`和`kubeadm join`一直报错：
+### ~~二、执行`kubeadm init`和`kubeadm join`一直报错：~~
 ```
 [preflight] Running pre-flight checks
 error execution phase preflight: [preflight] Some fatal errors occurred:
@@ -260,6 +262,8 @@ sudo modprobe ip_vs_rr
 sudo modprobe br_netfilter
 ```
 以上指令重启即失效？
+
+2024-06-11：该问题已解决！！！因为本次安装，没有校对之前写的Ansible脚本，这2项配置（ip_vs_rr可能现在不需要了），需要写进配置文件，否则重启失效（步骤1.3已更新）！该问题导致的后果是：相同节点上的服务，无法相互调用。
 
 ## 参考
 - <https://github.com/containerd/containerd/blob/main/docs/getting-started.md>
