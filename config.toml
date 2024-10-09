@@ -24,7 +24,7 @@ pygmentsCodefencesGuessSyntax = true
 	favicon = "/img/favicon.ico"
 	dateFormat = "2006-01-02"
 
-[Author]
+[Params.author]
 	name = "Chris"
 	github = "ichrislu"
 	email = "chrislu.name@gmail.com"
