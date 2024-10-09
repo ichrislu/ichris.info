@@ -59,3 +59,12 @@ pygmentsCodefencesGuessSyntax = true
 date = ["date", "publishDate", "lastmod"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
+
+[outputs]
+	home = ["Algolia"]
+
+[outputFormats.Algolia]
+	baseName = "algolia"
+	isPlainText = true
+	mediaType = "application/json"
+	notAlternative = true
