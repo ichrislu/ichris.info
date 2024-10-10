@@ -59,7 +59,7 @@ lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 
 [outputs]
-	home = ["Algolia"]
+	home = ["HTML", "Algolia"]
 
 [outputFormats.Algolia]
 	baseName = "algolia"
