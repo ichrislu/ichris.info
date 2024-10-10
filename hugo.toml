@@ -26,6 +26,10 @@ pygmentsCodefencesGuessSyntax = true
     name = 'Chris'
     github = 'ichrislu'
 
+[page]
+  nextPrevInSectionSortOrder = 'asc'
+  nextPrevSortOrder = 'asc'
+
 [pagination]
   pagerSize = 10
   path = 'page'
@@ -53,11 +57,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [permalinks]
   [permalinks.page]
-    posts = '/:year/:slug/'
-
-[page]
-  nextPrevInSectionSortOrder = 'asc'
-  nextPrevSortOrder = 'asc'
+    posts = '/:slug/'
 
 [frontmatter]
   date = ['date', 'publishDate', 'lastmod']
