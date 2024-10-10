@@ -6,9 +6,6 @@ theme = "beautifulhugo"
 enableEmoji = true
 # enableGitInfo = true
 hasCJKLanguage = true
-paginate = 10
-paginatePath = "page"
-googleAnalytics = "UA-137163651-1"
 # uglyURLs = true
 
 pygmentsOptions = "linenos=table"
@@ -31,6 +28,10 @@ pygmentsCodefencesGuessSyntax = true
 
 [blackfriday]
 	hrefTargetBlank = true
+
+[pagination]
+	pagerSize = 10
+	path = 'page'
 
 [[menu.main]]
 	name = "HOME"
