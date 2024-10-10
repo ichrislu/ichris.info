@@ -6,6 +6,7 @@ theme = "beautifulhugo"
 enableEmoji = true
 # enableGitInfo = true
 hasCJKLanguage = true
+enableRobotsTXT = true
 
 # 代码语法高亮
 pygmentsOptions = "linenos=table"
