@@ -56,8 +56,10 @@ pygmentsCodefencesGuessSyntax = true
     weight = 4
 
 [permalinks]
-  [permalinks.page]
-    '/' = '/:slug/'
+  [permalinks.term]
+    tags = '/:slug/'
+#  [permalinks.page]
+#    '/' = '/:slug/'
 
 [frontmatter]
   date = ['date', 'publishDate', 'lastmod']
