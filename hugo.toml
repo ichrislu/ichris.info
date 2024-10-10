@@ -57,7 +57,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [permalinks]
  [permalinks.page]
-   '/' = '/:slug/'
+   '/' = '/:year/:slug/'
 
 [frontmatter]
   date = ['date', 'publishDate', 'lastmod']
