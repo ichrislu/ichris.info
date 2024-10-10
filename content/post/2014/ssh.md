@@ -27,3 +27,13 @@ UseDNS配置项，值为no，重启ssh服务生效
 
 ### 复制公钥到远程服务器
 `ssh-copy-id user@remote_host`
+
+### SSH客户端保活
+```bash
+vim ~/.ssh/config
+
+# 添加以下内容，60秒发一次心跳，最多30次
+Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 30
+```
