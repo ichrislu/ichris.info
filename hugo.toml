@@ -54,9 +54,9 @@ pygmentsCodefencesGuessSyntax = true
 	"/" = "/:year/:title/"
 
 [frontmatter]
-date = ["date", "publishdate", "lastmod"]
-lastmod = ["lastmod", ":git", "date", "publishdate"]
-publishDate = ["publishdate", "date"]
+date = ["date", "publishDate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
 
 [outputs]
 	home = ["Algolia"]
