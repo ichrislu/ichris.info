@@ -1,19 +1,19 @@
 baseURL = "https://ichris.info/"
-languageCode = "zh-cn"
-defaultContentLanguage = "zh-cn"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh-CN"
 title = "Chris's web"
 theme = "beautifulhugo"
 enableEmoji = true
 # enableGitInfo = true
 hasCJKLanguage = true
-# uglyURLs = true
 
+# 代码语法高亮
 pygmentsOptions = "linenos=table"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
-[Params]
+[params]
 	useHLJS = false
 	since = 2011
 	subtitle = "简洁 优雅 高效"
@@ -21,13 +21,10 @@ pygmentsCodefencesGuessSyntax = true
 	favicon = "/img/favicon.ico"
 	dateFormat = "2006-01-02"
 
-[Params.author]
+[params.author]
 	name = "Chris"
 	github = "ichrislu"
 	email = "chrislu.name@gmail.com"
-
-[blackfriday]
-	hrefTargetBlank = true
 
 [pagination]
 	pagerSize = 10
@@ -57,12 +54,12 @@ pygmentsCodefencesGuessSyntax = true
 	"/" = "/:year/:title/"
 
 [frontmatter]
-date = ["date", "publishDate", "lastmod"]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
-publishDate = ["publishDate", "date"]
+date = ["date", "publishdate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishdate"]
+publishDate = ["publishdate", "date"]
 
 [outputs]
-	home = ["HTML", "RSS", "Algolia"]
+	home = ["Algolia"]
 
 [outputFormats.Algolia]
 	baseName = "algolia"
