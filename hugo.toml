@@ -9,10 +9,10 @@ hasCJKLanguage = true
 enableRobotsTXT = true
 
 # 代码语法高亮
-pygmentsOptions = 'linenos=table'
-pygmentsCodeFences = true
-pygmentsUseClasses = true
-pygmentsCodefencesGuessSyntax = true
+# pygmentsOptions = 'linenos=table'
+# pygmentsCodeFences = true
+# pygmentsUseClasses = true
+# pygmentsCodefencesGuessSyntax = true
 
 [params]
   useHLJS = true
