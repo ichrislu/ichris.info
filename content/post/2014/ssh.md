@@ -1,7 +1,7 @@
 ---
 title: "ssh登录"
 date: "2014-11-13"
-lastMod: "2018-09-14"
+lastMod: "2024-10-10"
 categories: ["it"]
 tags: ["linux", "ssh", "ssh-keygen", "ssh-copy-id"]
 ---

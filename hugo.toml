@@ -21,6 +21,7 @@ pygmentsCodefencesGuessSyntax = true
   logo = '/img/avatar.jpg'
   favicon = '/img/favicon.ico'
   dateFormat = '2006-01-02'
+  gcse = '012197134175958074274:kptvndglwsw'
   [params.author]
     email = 'chrislu.name@gmail.com'
     name = 'Chris'
