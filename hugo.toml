@@ -15,7 +15,6 @@ pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
 [params]
-  # useHLJS = false
   since = 2011
   subtitle = '简洁 优雅 高效'
   logo = '/img/avatar.jpg'
@@ -57,22 +56,13 @@ pygmentsCodefencesGuessSyntax = true
     weight = 4
 
 [permalinks]
- [permalinks.page]
-   '/' = '/:year/:slug/'
+  [permalinks.page]
+    '/' = '/:year/:slug/'
 
 [frontmatter]
   date = ['date', 'publishDate', 'lastmod']
   lastmod = ['lastmod', ':git', 'date', 'publishDate']
   publishDate = ['publishDate', 'date']
-
-[outputs]
-  home = ['HTML', 'RSS', 'Algolia']
-
-[outputFormats.Algolia]
-  baseName = 'algolia'
-  isPlainText = true
-  mediaType = 'application/json'
-  notAlternative = true
 
 [services]
   [services.googleAnalytics]
