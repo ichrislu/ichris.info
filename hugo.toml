@@ -9,13 +9,13 @@ hasCJKLanguage = true
 enableRobotsTXT = true
 
 # 代码语法高亮
-# pygmentsOptions = 'linenos=table'
-# pygmentsCodeFences = true
-# pygmentsUseClasses = true
-# pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = 'linenos=table'
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
 
 [params]
-  useHLJS = true
+  # useHLJS = false
   since = 2011
   subtitle = '简洁 优雅 高效'
   logo = '/img/avatar.jpg'
@@ -76,4 +76,4 @@ enableRobotsTXT = true
 
 [services]
   [services.googleAnalytics]
-    ID = 'G-137163651'
+    ID = 'G-HCCP8L8EZW'
