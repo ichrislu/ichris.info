@@ -1,7 +1,7 @@
 baseURL = 'https://ichris.info/'
 languageCode = 'zh-cn'
 defaultContentLanguage = 'zh-cn'
-title = '''Chris's web'''
+title = 'Code is Poetry'
 theme = 'beautifulhugo'
 enableEmoji = true
 # enableGitInfo = true
@@ -15,7 +15,7 @@ pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
 [params]
-  useHLJS = false
+  useHLJS = true
   since = 2011
   subtitle = '简洁 优雅 高效'
   logo = '/img/avatar.jpg'
@@ -23,8 +23,8 @@ pygmentsCodefencesGuessSyntax = true
   dateFormat = '2006-01-02'
   gcse = '012197134175958074274:kptvndglwsw'
   [params.author]
-    email = 'chrislu.name@gmail.com'
     name = 'Chris'
+    email = 'chrislu.name@gmail.com'
     github = 'ichrislu'
 
 [page]
@@ -73,3 +73,7 @@ pygmentsCodefencesGuessSyntax = true
   isPlainText = true
   mediaType = 'application/json'
   notAlternative = true
+
+[services]
+  [services.googleAnalytics]
+    ID = 'G-137163651'
