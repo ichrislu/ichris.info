@@ -1,7 +1,7 @@
 ---
 title: "macOS安装配置和软件"
 date: "2018-12-26"
-lastMod: "2020-07-13"
+lastMod: "2024-11-19"
 categories: ["it"]
 tags: ["macOS", "linux"]
 ---
@@ -57,6 +57,18 @@ tags: ["macOS", "linux"]
 
 **关于系统设置，写到最后的感受，也许"迁移助理"是个很不错的工具和选择！**
 
+#### SSH客户端配置
+
+- 当前用户生效（推荐方案，没有就创建）：`.ssh/config`
+
+- ~~系统级生效：`/etc/ssh/ssh_config`~~
+
+```bash
+HOST *
+    ServerAliveInterval 60
+    ServerAliveCountMax 1440
+```
+
 ---
 
 ### 软件
@@ -65,15 +77,15 @@ tags: ["macOS", "linux"]
 - 清歌五笔
 - Alfred
 - Typora
-- ~~XMind Zen，幕布~~，已换为WPS
-- AppCleaner或Tencent Lemon
+- ~~XMind Zen，幕布，已换为WPS~~
+- ~~AppCleaner~~，Tencent Lemon
 - Microsoft Remote Desktop（仅海外App Store有，不能下载，当前是下载的测试版）
 - IINA
-- Itsycal
-- ~~CotEditor~~，已换为MacVim + Noto
+- ~~Itsycal~~，CalendarX
+- ~~CotEditor~~，~~Noto~~，MacVim
 - ~~FreeDownloadManager~~，已换为Motrix
 - The Unarchiver（首选），eZip
-- 有道云笔记
+- ~~有道云笔记~~
 
 #### 常规开发工具
 - Postman
@@ -84,7 +96,7 @@ tags: ["macOS", "linux"]
 - AnotherRedisDesktopManager
 - ~~Termius~~，已换为iTerm2 + profile
 
-#### ShadowsocksX-NG（改用V2ray）
+#### ~~ShadowsocksX-NG~~改用V2ray
 以前一直用的是ShadowsocksX，这次重装改用了ShadowsocksX-NG，据[官网](https://github.com/shadowsocks/ShadowsocksX-NG)介绍，后者是用来替代前者的，同样遇到了小坑。
 
 第1次安装完，启动发现间隙性不能使用，一直找不到原因，于是暂时先停掉ShadowsocksX-NG，换回了ShadowsocksX。
@@ -141,19 +153,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 #### iTerm2
 ##### 配置
-- 安装iTerm2之后，发现option+←和option+→这两组快捷键并不能实现光标按照单词快速移动，修改如下：Profiles → Keys → Presets... → Natural Text Editing
-- 默认通过ssh连接服务器会超时，可以通过修改配置文件：/etc/ssh/ssh_config，在Host 下添加ServerAliveInterval 60即可，如：
-```conf
-Host *
-        SendEnv LANG LC_*
-        ServerAliveInterval 60
-```
-或修改用户级配置文件~/.ssh/config（没有就创建）
-```conf
-Host *
-     ServerAliveInterval 60
-```
-
+- ~~安装iTerm2之后，发现option+←和option+→这两组快捷键并不能实现光标按照单词快速移动，修改如下：Profiles → Keys → Presets... → Natural Text Editing~~
+  - 最新版本已经适配，但是需要修改del：默认的Key Mappings，删除Send Hex Codes: 0x4，Del->。这个会导致按del键时触发cmd + w
 > 官网：www.iterm2.com
 
 #### ~~finder和shell切换~~
