@@ -1,5 +1,5 @@
 ---
-title: "AI学习笔记1 大模型应用开发基础"
+title: "AI学习笔记"
 date: "2024-01-23"
 lastMod: "2025-03-11"
 categories: ["it"]
