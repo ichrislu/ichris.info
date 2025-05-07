@@ -45,10 +45,9 @@ tags: ["python"]
 
 
 
-- [ ] 
-  print("-", 10),
-
-- [ ] print(f'格式化输出：{area:.4f}'）
+- [ ] `print("-", 10),`
+  
+- [ ] `print(f'格式化输出：{area:.4f}'）`
 
 
 
